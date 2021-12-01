@@ -12,11 +12,11 @@ class Game {
 private:
 
 	// The window ---------------------------------------------
-	sf::RenderWindow window_;
+	sf::RenderWindow m_window;
 
 	// The physical world -------------------------------------
-	b2Vec2 gravity_;
-	b2World world_;
+	b2Vec2 m_gravity;
+	b2World m_world;
 
 public:
 
@@ -33,7 +33,7 @@ public:
 #pragma endregion
 #pragma region Getter/Setter
 
-	b2World& getWorld() { return world_; };
+	b2World& getWorld() { return m_world; };
 
 #pragma endregion
 #pragma region Conversion Methods

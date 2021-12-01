@@ -4,8 +4,8 @@
 
 Game::Game() :
 	//Add a character
-	gravity_(0, 0),
-	world_(gravity_)
+	m_gravity(0, -9.81f),
+	m_world(m_gravity)
 {
 
 }
@@ -13,67 +13,50 @@ Game::Game() :
 #pragma endregion
 #pragma region Game Methods
 
-void Game::init() {
-
-	window_.create(sf::VideoMode(1920, 1080), "SAE Platformer");
-	window_.setVerticalSyncEnabled(true);
-	window_.setFramerateLimit(60.0f);
+void Game::init() 
+{
+	m_window.create(sf::VideoMode(1920, 1080), "ToTheMoonAndBack");
+	m_window.setVerticalSyncEnabled(true);
+	m_window.setFramerateLimit(60.0f);
 
 	// Init all elements
-
 }
-
 void Game::loop()
 {
-
-	while (window_.isOpen())
+	while (m_window.isOpen())
 	{
+
 #pragma region Event processes
 		sf::Event event;
 
-		while (window_.pollEvent(event))
+		while (m_window.pollEvent(event))
 		{
 			// Windows events -------------------------------------------------------------------------------
 			if (event.type == sf::Event::Closed)
 			{
-				window_.close();
+				m_window.close();
 				return;
 			}
 			if (event.type == sf::Event::Resized)
 			{
-				auto view = window_.getView();
+				auto view = m_window.getView();
 				view.setSize(event.size.width, event.size.height);
-				window_.setView(view);
+				m_window.setView(view);
 			}
 
-			// Mouse events ---------------------------------------------------------------------------------
-			if (event.type == sf::Event::MouseButtonPressed)
-			{
-				if (event.mouseButton.button == sf::Mouse::Left) {
-					
-				}
-				if (event.mouseButton.button == sf::Mouse::Right) {
-					
-				}
-			}
-
-			if (event.type == sf::Event::MouseButtonReleased)
-			{
-				if (event.mouseButton.button == sf::Mouse::Right) {
-					
-				}
-
-				if (event.mouseButton.button == sf::Mouse::Left) {
-					// mouse Released position detect
-					
-					
-					
-				}
-			}
 			// Keyboard events
 			if (event.type == sf::Event::KeyReleased) {
-				if (event.key.code == sf::Keyboard::Space) {
-					
+				if (event.key.code == sf::Keyboard::Space) 
+				{
+					//TODO: Add Thrust	
+				}
+				if (event.key.code == sf::Keyboard::A) 
+				{
+					//TODO : Move Left
+				}
+				if (event.key.code == sf::Keyboard::D) 
+				{
+					//TODO: Move Right
 				}
 			}
 		}
@@ -84,7 +67,7 @@ void Game::loop()
 		float timeStep = 1.0f / 60.0f;
 		int32 velocityIterations = 6;
 		int32 positionIterations = 2;
-		world_.Step(timeStep, velocityIterations, positionIterations);
+		m_world.Step(timeStep, velocityIterations, positionIterations);
 
 		// Update the elements
 
@@ -93,14 +76,14 @@ void Game::loop()
 #pragma region Graphical process
 
 		// Clear all background
-		window_.clear();
+		m_window.clear();
 		// Render All elements
 		
 		// Display all elements
-		window_.display();
+		m_window.display();
 		
 #pragma endregion
-
+	
 	}
 }
 

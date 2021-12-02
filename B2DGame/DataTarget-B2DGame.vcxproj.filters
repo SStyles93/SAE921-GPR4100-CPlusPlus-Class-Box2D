@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\CMakeFiles\39aa0865da61ff9ea387d33d75e2382b\fire.png.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\CMakeFiles\39aa0865da61ff9ea387d33d75e2382b\rocket.png.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\CMakeFiles\34805f61a70de7d8cf7fde30ad06b391\DataTarget-B2DGame.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\B2DGame\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\B2DGame\CMakeFiles\DataTarget-B2DGame" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{BB557006-032C-3E46-A8D0-43C3F4A7D197}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

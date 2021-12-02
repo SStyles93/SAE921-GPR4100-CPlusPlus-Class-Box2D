@@ -86,8 +86,9 @@ void Game::Loop()
 			// Keyboard events
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
 			{
-				//TODO: Add Thrust
+				//Add Thrust
 				m_character.Thruster(b2Vec2(0.0f, 100.0f));
+				//Set alpha to max
 				m_character.SetSpriteAlpha(m_character.m_secondSprite, m_character.m_thrusterAlphaValue = 255.0f);
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))

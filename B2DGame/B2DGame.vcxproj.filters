@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\B2DGame\src\SFML_Utilities.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\B2DGame\src\background.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\B2DGame\src\boundary.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\B2DGame\src\character.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\B2DGame\src\game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\B2DGame\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\B2DGame\include\SFML_Utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\B2DGame\include\background.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\B2DGame\include\boundary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\B2DGame\include\character.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\B2DGame\include\game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\B2DGame\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{FD2C8E94-4D44-3DFA-BB94-9A5318025563}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A48A5288-E31D-3649-96E0-616E831A7171}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

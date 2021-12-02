@@ -10,3 +10,6 @@
 2	42	6601409739430416	B2DGame/data/sprites/rocket.png	1465e1b52c0ba1f6
 2	41	6601602017292860	B2DGame/data/sprites/fire.png	a92af598963c9831
 8	1202	6601618274148394	B2DGame/CMakeFiles/B2DGame.dir/src/boundary.cpp.obj	d8dc3b188199b93b
+1	924	6601626784442419	B2DGame/CMakeFiles/B2DGame.dir/src/character.cpp.obj	92f973fe0ad610d2
+8	953	6601626784754854	B2DGame/CMakeFiles/B2DGame.dir/src/game.cpp.obj	861f276f64dd1d2e
+953	1836	6601626786473210	B2DGame/B2DGame.exe	c2c867a85f08010

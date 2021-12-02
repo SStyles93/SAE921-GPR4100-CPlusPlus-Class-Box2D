@@ -66,6 +66,8 @@ void Game::Loop()
 #pragma region Event processes
 		sf::Event event;
 
+		m_window.setKeyRepeatEnabled(false);
+
 		while (m_window.pollEvent(event))
 		{
 			// Windows events -------------------------------------------------------------------------------

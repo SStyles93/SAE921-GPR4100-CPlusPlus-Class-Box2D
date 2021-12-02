@@ -6,17 +6,25 @@
 #include "SFML/Window//Event.hpp"
 #include "box2d/b2_world.h"
 
+#include "character.h"
+#include "boundary.h"
+
 
 class Game {
 
 private:
 
-	// The window ---------------------------------------------
-	sf::RenderWindow m_window;
-
 	// The physical world -------------------------------------
 	b2Vec2 m_gravity;
 	b2World m_world;
+
+	//Window
+	sf::RenderWindow m_window;
+
+	//Character
+	Character m_character;
+	//Boundaries
+	std::vector<Boundary> m_boundaries;
 
 public:
 
@@ -27,8 +35,8 @@ public:
 #pragma endregion
 #pragma region Game Methods
 	
-	void init();
-	void loop();
+	void Init();
+	void Loop();
 
 #pragma endregion
 #pragma region Getter/Setter

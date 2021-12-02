@@ -66,7 +66,7 @@ build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 #############################################
 # Utility command for DataTarget-B2DGame
 
-build B2DGame\DataTarget-B2DGame: phony
+build B2DGame\DataTarget-B2DGame: phony B2DGame\CMakeFiles\DataTarget-B2DGame B2DGame\data\sprites\fire.png B2DGame\data\sprites\rocket.png
 
 # =============================================================================
 # Object build statements for EXECUTABLE target B2DGame
@@ -76,6 +76,24 @@ build B2DGame\DataTarget-B2DGame: phony
 # Order-only phony target for B2DGame
 
 build cmake_object_order_depends_target_B2DGame: phony || B2DGame\DataTarget-B2DGame
+
+build B2DGame\CMakeFiles\B2DGame.dir\src\SFML_Utilities.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\SFML_Utilities.cpp || cmake_object_order_depends_target_B2DGame
+  DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
+  INCLUDES = -I..\..\..\B2DGame\include -IC:\dev\0_Installs\vcpkg\installed\x64-windows\include
+  OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
+  OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
+  TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
+  TARGET_PDB = B2DGame\B2DGame.pdb
+
+build B2DGame\CMakeFiles\B2DGame.dir\src\boundary.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\boundary.cpp || cmake_object_order_depends_target_B2DGame
+  DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
+  INCLUDES = -I..\..\..\B2DGame\include -IC:\dev\0_Installs\vcpkg\installed\x64-windows\include
+  OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
+  OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
+  TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
+  TARGET_PDB = B2DGame\B2DGame.pdb
 
 build B2DGame\CMakeFiles\B2DGame.dir\src\character.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\character.cpp || cmake_object_order_depends_target_B2DGame
   DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
@@ -112,7 +130,7 @@ build B2DGame\CMakeFiles\B2DGame.dir\src\main.cpp.obj: CXX_COMPILER__B2DGame_Deb
 #############################################
 # Link the executable B2DGame\B2DGame.exe
 
-build B2DGame\B2DGame.exe: CXX_EXECUTABLE_LINKER__B2DGame_Debug B2DGame\CMakeFiles\B2DGame.dir\src\character.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\game.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\main.cpp.obj | C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-graphics-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-audio-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-window-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-system-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\manual-link\sfml-main-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\box2d.lib || B2DGame\DataTarget-B2DGame
+build B2DGame\B2DGame.exe: CXX_EXECUTABLE_LINKER__B2DGame_Debug B2DGame\CMakeFiles\B2DGame.dir\src\SFML_Utilities.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\boundary.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\character.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\game.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\main.cpp.obj | C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-graphics-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-audio-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-window-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-system-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\manual-link\sfml-main-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\box2d.lib || B2DGame\DataTarget-B2DGame
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-graphics-d.lib  C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-audio-d.lib  C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-window-d.lib  C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-system-d.lib  C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\manual-link\sfml-main-d.lib  C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\box2d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -146,6 +164,30 @@ build B2DGame\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
   restat = 1
 
 build B2DGame\rebuild_cache: phony B2DGame\CMakeFiles\rebuild_cache.util
+
+
+#############################################
+# Phony custom command for B2DGame\CMakeFiles\DataTarget-B2DGame
+
+build B2DGame\CMakeFiles\DataTarget-B2DGame: phony B2DGame\data\sprites\fire.png B2DGame\data\sprites\rocket.png ..\..\..\B2DGame\data\sprites\fire.png ..\..\..\B2DGame\data\sprites\rocket.png
+
+
+#############################################
+# Custom command for B2DGame\data\sprites\fire.png
+
+build B2DGame\data\sprites\fire.png: CUSTOM_COMMAND ..\..\..\B2DGame\data\sprites\fire.png
+  COMMAND = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/sprites/fire.png C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/sprites/fire.png"
+  DESC = Generating data/sprites/fire.png
+  restat = 1
+
+
+#############################################
+# Custom command for B2DGame\data\sprites\rocket.png
+
+build B2DGame\data\sprites\rocket.png: CUSTOM_COMMAND ..\..\..\B2DGame\data\sprites\rocket.png
+  COMMAND = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/sprites/rocket.png C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/sprites/rocket.png"
+  DESC = Generating data/sprites/rocket.png
+  restat = 1
 
 # =============================================================================
 # Target aliases.

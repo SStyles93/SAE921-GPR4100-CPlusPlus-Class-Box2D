@@ -3,26 +3,63 @@
 #pragma region Ctor
 
 Game::Game() :
-	//Add a character
-	m_gravity(0, -9.81f),
-	m_world(m_gravity)
+	m_gravity(0.0f, -.981f),
+	m_world(m_gravity),
+	m_character(*this)
 {
-
 }
 
 #pragma endregion
 #pragma region Game Methods
 
-void Game::init() 
+void Game::Init() 
 {
 	m_window.create(sf::VideoMode(1920, 1080), "ToTheMoonAndBack");
 	m_window.setVerticalSyncEnabled(true);
 	m_window.setFramerateLimit(60.0f);
 
-	// Init all elements
+	m_character.Init(m_window.getSize());
+	m_character.move(sf::Vector2f(0.5f * m_window.getSize().x, 0.5f * m_window.getSize().y));
+
+	//Set Boudaries
+	// Top Boundary
+	m_boundaries.push_back(
+		Boundary(
+			*this,
+			sf::Vector2f(0.5f * m_window.getSize().x, 0.0f),
+			sf::Vector2f(m_window.getSize().x, 10.0f)
+		)
+	);
+	// Bottom Boundary
+	m_boundaries.push_back(
+		Boundary(
+			*this,
+			sf::Vector2f(0.5f * m_window.getSize().x, m_window.getSize().y),
+			sf::Vector2f(m_window.getSize().x, 10.0f)
+		)
+	);
+	// Left Boundary
+	m_boundaries.push_back(
+		Boundary(
+			*this,
+			sf::Vector2f(0.0f, 0.5f * m_window.getSize().y),
+			sf::Vector2f(50.0f, m_window.getSize().y)
+		)
+	);
+	// Right Boundary
+	m_boundaries.push_back(
+		Boundary(
+			*this,
+			sf::Vector2f(m_window.getSize().x, 0.5f * m_window.getSize().y),
+			sf::Vector2f(50.0f, m_window.getSize().y)
+		)
+	);
+
+
 }
-void Game::loop()
+void Game::Loop()
 {
+
 	while (m_window.isOpen())
 	{
 
@@ -45,22 +82,26 @@ void Game::loop()
 			}
 
 			// Keyboard events
-			if (event.type == sf::Event::KeyReleased) {
-				if (event.key.code == sf::Keyboard::Space) 
-				{
-					//TODO: Add Thrust	
-				}
-				if (event.key.code == sf::Keyboard::A) 
-				{
-					//TODO : Move Left
-				}
-				if (event.key.code == sf::Keyboard::D) 
-				{
-					//TODO: Move Right
-				}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+			{
+				//TODO: Add Thrust
+				m_character.Thruster(b2Vec2(0.0f, 100.0f));
+				m_character.SetSpriteAlpha(m_character.m_secondSprite, m_character.m_thrusterAlphaValue = 255.0f);
 			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+			{
+				//TODO : Move Left
+				m_character.MoveLeft();
+				
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+			{
+				//TODO: Move Right
+				m_character.MoveRight();
+			}
+			
 		}
-#pragma endregion
+
 #pragma region Physical process
 
 		// Updating the world with a delay
@@ -69,21 +110,25 @@ void Game::loop()
 		int32 positionIterations = 2;
 		m_world.Step(timeStep, velocityIterations, positionIterations);
 
-		// Update the elements
-
+		m_character.Update();
 
 #pragma endregion
 #pragma region Graphical process
 
+		//Lowers the Thruster alpha
+		if (m_character.m_thrusterAlphaValue >= 0.0f)
+		{
+			m_character.SetSpriteAlpha(m_character.m_secondSprite, m_character.m_thrusterAlphaValue -= m_character.m_thrusterAlphaValue / 10);
+		}
+
 		// Clear all background
 		m_window.clear();
 		// Render All elements
-		
+		m_window.draw(m_character);
 		// Display all elements
 		m_window.display();
-		
+
 #pragma endregion
-	
 	}
 }
 

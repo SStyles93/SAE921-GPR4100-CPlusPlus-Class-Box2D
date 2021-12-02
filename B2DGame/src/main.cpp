@@ -3,7 +3,7 @@
 
 int main()
 {
-    Game game;
-    game.init();
-    game.loop();
+	Game game;
+	game.Init();
+	game.Loop();
 }

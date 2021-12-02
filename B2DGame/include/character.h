@@ -5,30 +5,46 @@
 
 class Game;
 
-class Character
+class Character : public sf::Drawable, public sf::Transformable
 {
-private:
-	//Root game;
-	Game& m_game;
+protected:
 	//SMFL object
-	sf::ConvexShape m_shape;
-	//SFML window
-	sf::RenderWindow& m_window;
+	//Ship
+	sf::Sprite m_mainSprite;
+	std::string m_mainSpriteAdress;
+	sf::Texture m_mainTexture;
+	//Thruster
+	std::string m_secondSpriteAdress;
+	sf::Texture m_secondTexture;
+
+	
 	//Box2D object
 	b2Body* m_body = nullptr;
+
+	Game& m_game;
+	
 public:
 
-#pragma region Ctor
+	//Thruster
+	sf::Sprite m_secondSprite;
+	float m_thrusterAlphaValue = 0;
+
+#pragma region Ctors
 	
-	Character(Game& game, sf::RenderWindow& window);
+	explicit Character(Game& game);
 
 #pragma endregion
 #pragma region Game Methods
 	
-	void Init();
+	void Init(sf::Vector2u winsize);
 	void Update();
-	void Render();
-	void SetPixelsPosition(sf::Vector2f _pixelsPosition, sf::Vector2f _velocity);
+	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
+	void Thruster(b2Vec2 b2Vec2);
+	void MoveLeft();
+	void MoveRight();
+
+	void SetSpriteAlpha(sf::Sprite& sprite, float alphaValue);
 
 #pragma endregion
 

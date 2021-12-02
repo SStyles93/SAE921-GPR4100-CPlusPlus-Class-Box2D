@@ -8,13 +8,14 @@
 
 #include "character.h"
 #include "boundary.h"
+#include "background.h"
 
 
 class Game {
 
 private:
 
-	// The physical world -------------------------------------
+	// Physical
 	b2Vec2 m_gravity;
 	b2World m_world;
 
@@ -23,8 +24,10 @@ private:
 
 	//Character
 	Character m_character;
+	
 	//Boundaries
 	std::vector<Boundary> m_boundaries;
+	std::vector<Background> m_background;
 
 public:
 

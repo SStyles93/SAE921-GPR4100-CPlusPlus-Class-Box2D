@@ -21,7 +21,7 @@ void Game::Init()
 	m_character.Init(m_window.getSize());
 	m_character.move(sf::Vector2f(0.5f * m_window.getSize().x, 0.5f * m_window.getSize().y));
 
-	//Set Boudaries
+	// Set Boudaries
 	// Top Boundary
 	m_boundaries.push_back(
 		Boundary(
@@ -54,6 +54,11 @@ void Game::Init()
 			sf::Vector2f(50.0f, m_window.getSize().y)
 		)
 	);
+	// Background elements
+	m_background.push_back(
+		Background(*this, "data/sprites/star.png")); 
+	m_background.push_back(
+		Background(*this, "data/sprites/trail.png"));
 
 
 }

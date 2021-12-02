@@ -1,0 +1,16 @@
+# ninja log v5
+1	42	6601694088542645	B2DGame/data/sprites/rocket.png	1465e1b52c0ba1f6
+8	48	6601694088698854	B2DGame/data/sprites/fire.png	a92af598963c9831
+60	1027	6601694098384068	B2DGame/CMakeFiles/B2DGame.dir/src/SFML_Utilities.cpp.obj	ba8f1434b5f26e8d
+14	1076	6601768383417466	B2DGame/CMakeFiles/B2DGame.dir/src/character.cpp.obj	92f973fe0ad610d2
+1	1079	6601768383417466	B2DGame/CMakeFiles/B2DGame.dir/src/background.cpp.obj	366f6e014da56dd3
+26	1072	6601768383261254	B2DGame/CMakeFiles/B2DGame.dir/src/main.cpp.obj	2c6526de712a07d5
+7	1078	6601768383417466	B2DGame/CMakeFiles/B2DGame.dir/src/boundary.cpp.obj	d8dc3b188199b93b
+20	1095	6601768383573677	B2DGame/CMakeFiles/B2DGame.dir/src/game.cpp.obj	861f276f64dd1d2e
+1096	1910	6601768385135803	B2DGame/B2DGame.exe	fd055587cb4118c
+2	42	6601768703994051	B2DGame/data/sprites/star.png	4c5bcc6472f9845c
+9	48	6601768704150263	B2DGame/data/sprites/trail.png	bba336cb08b3d0d1
+2	918	6601769028048330	B2DGame/CMakeFiles/B2DGame.dir/src/game.cpp.obj	861f276f64dd1d2e
+918	1708	6601769029610442	B2DGame/B2DGame.exe	fd055587cb4118c
+1	860	6601769593400296	B2DGame/CMakeFiles/B2DGame.dir/src/background.cpp.obj	366f6e014da56dd3
+860	1744	6601769595587283	B2DGame/B2DGame.exe	fd055587cb4118c

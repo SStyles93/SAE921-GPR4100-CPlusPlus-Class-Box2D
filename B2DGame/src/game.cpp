@@ -109,14 +109,19 @@ void Game::Loop()
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 			{
-				//TODO : Move Left
+				//Move Left
 				m_character.MoveLeft(b2Vec2(-100.0f, 0.0f));
 				
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 			{
-				//TODO: Move Right
+				//Move Right
 				m_character.MoveRight(b2Vec2(100.0f, 0.0f));
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
+			{
+				//Move Down
+				m_character.MoveRight(b2Vec2(0.0f, -20.0f));
 			}
 			
 		}

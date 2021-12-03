@@ -75,13 +75,15 @@ void Character::Thruster(b2Vec2 b2Vec)
 		}
 	}
 }
-void Character::MoveRight()
+void Character::MoveRight(b2Vec2 force)
 {
-	m_body->SetTransform(b2Vec2(m_body->GetPosition() + b2Vec2(0.25, 0.0)), m_body->GetAngle());
+	//m_body->SetTransform(b2Vec2(m_body->GetPosition() + b2Vec2(0.25, 0.0)), m_body->GetAngle());
+	m_body->ApplyForceToCenter(force, true);
 }
-void Character::MoveLeft() 
+void Character::MoveLeft(b2Vec2 force)
 {
-	m_body->SetTransform(b2Vec2(m_body->GetPosition() + b2Vec2(-0.25,0.0)), m_body->GetAngle());
+	//m_body->SetTransform(b2Vec2(m_body->GetPosition() + b2Vec2(-0.25,0.0)), m_body->GetAngle());
+	m_body->ApplyForceToCenter(force, true);
 }
 void Character::SetSpriteAlpha(sf::Sprite& sprite, float alphaValue) 
 {

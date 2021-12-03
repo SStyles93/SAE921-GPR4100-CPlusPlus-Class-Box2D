@@ -1,8 +1,8 @@
-# Install script for directory: C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame
+# Install script for directory: D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/install/x64-Debug")
+  set(CMAKE_INSTALL_PREFIX "D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/install/x64-Debug")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

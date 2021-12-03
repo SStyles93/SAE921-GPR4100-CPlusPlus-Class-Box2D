@@ -8,7 +8,7 @@
 
 #include "character.h"
 #include "boundary.h"
-#include "background.h"
+#include "object.h"
 
 
 class Game {
@@ -27,7 +27,7 @@ private:
 	
 	//Boundaries
 	std::vector<Boundary> m_boundaries;
-	std::vector<Background> m_background;
+	std::vector<Object> m_objects;
 
 public:
 

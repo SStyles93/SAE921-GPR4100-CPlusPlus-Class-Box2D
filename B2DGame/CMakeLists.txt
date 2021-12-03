@@ -36,7 +36,7 @@ include_directories(include/)
 
 file(GLOB_RECURSE PLATFORMER_SRC src/*.cpp include/*.h)
 
-add_executable(${EXECUTABLE_CUSTOM_NAME} ${PLATFORMER_SRC} "src/game.cpp" "include/game.h" "src/character.cpp" "include/character.h" "src/SFML_Utilities.cpp" "include/SFML_Utilities.h" "src/boundary.cpp" "include/boundary.h" "src/background.cpp" "include/background.h")
+add_executable(${EXECUTABLE_CUSTOM_NAME} ${PLATFORMER_SRC} "src/game.cpp" "include/game.h" "src/character.cpp" "include/character.h" "src/SFML_Utilities.cpp" "include/SFML_Utilities.h" "src/boundary.cpp" "include/boundary.h" "src/object.cpp" "include/object.h")
 add_dependencies(${EXECUTABLE_CUSTOM_NAME} DataTarget-${EXECUTABLE_CUSTOM_NAME})
 target_link_libraries(${EXECUTABLE_CUSTOM_NAME} PRIVATE sfml-graphics sfml-audio sfml-window sfml-system)
 

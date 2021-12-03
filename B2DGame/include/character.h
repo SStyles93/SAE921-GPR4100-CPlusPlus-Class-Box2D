@@ -41,8 +41,8 @@ public:
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 	void Thruster(b2Vec2 b2Vec2);
-	void MoveLeft();
-	void MoveRight();
+	void MoveLeft(b2Vec2 force);
+	void MoveRight(b2Vec2 force);
 
 	void SetSpriteAlpha(sf::Sprite& sprite, float alphaValue);
 

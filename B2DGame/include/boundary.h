@@ -21,7 +21,7 @@ private:
 
 public:
 
-	explicit Boundary(Game& game_, sf::Vector2f pos, sf::Vector2f size);
+	explicit Boundary(Game& game, sf::Vector2f pos, sf::Vector2f size);
 
 	void Init(sf::Vector2f, sf::Vector2f);
 	void Update();

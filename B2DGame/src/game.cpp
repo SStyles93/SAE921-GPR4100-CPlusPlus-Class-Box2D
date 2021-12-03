@@ -6,20 +6,21 @@ Game::Game() :
 	m_gravity(0.0f, -.981f),
 	m_world(m_gravity),
 	m_character(*this)
-{
-}
+{}
 
 #pragma endregion
 #pragma region Game Methods
 
 void Game::Init() 
 {
-	m_window.create(sf::VideoMode(1920, 1080), "ToTheMoonAndBack");
+#pragma region Window
+
+	m_window.create(sf::VideoMode(1280, 1024), "ToTheMoonAndBack");
 	m_window.setVerticalSyncEnabled(true);
 	m_window.setFramerateLimit(60.0f);
 
-	m_character.Init(m_window.getSize());
-	m_character.move(sf::Vector2f(0.5f * m_window.getSize().x, 0.5f * m_window.getSize().y));
+#pragma endregion
+#pragma region WindowLimits
 
 	// Set Boudaries
 	// Top Boundary
@@ -27,39 +28,49 @@ void Game::Init()
 		Boundary(
 			*this,
 			sf::Vector2f(0.5f * m_window.getSize().x, 0.0f),
-			sf::Vector2f(m_window.getSize().x, 10.0f)
-		)
-	);
+			sf::Vector2f(m_window.getSize().x, 10.0f)));
 	// Bottom Boundary
 	m_boundaries.push_back(
 		Boundary(
 			*this,
 			sf::Vector2f(0.5f * m_window.getSize().x, m_window.getSize().y),
-			sf::Vector2f(m_window.getSize().x, 10.0f)
-		)
-	);
+			sf::Vector2f(m_window.getSize().x, 10.0f)));
 	// Left Boundary
 	m_boundaries.push_back(
 		Boundary(
 			*this,
 			sf::Vector2f(0.0f, 0.5f * m_window.getSize().y),
-			sf::Vector2f(50.0f, m_window.getSize().y)
-		)
-	);
+			sf::Vector2f(10.0f, m_window.getSize().y)));
 	// Right Boundary
 	m_boundaries.push_back(
 		Boundary(
 			*this,
 			sf::Vector2f(m_window.getSize().x, 0.5f * m_window.getSize().y),
-			sf::Vector2f(50.0f, m_window.getSize().y)
-		)
-	);
-	// Background elements
-	m_background.push_back(
-		Background(*this, "data/sprites/star.png")); 
-	m_background.push_back(
-		Background(*this, "data/sprites/trail.png"));
+			sf::Vector2f(10.0f, m_window.getSize().y)));
 
+#pragma endregion
+#pragma region BackGroundElements
+
+
+	// Background elements
+	m_objects.push_back(
+		Object(*this, 
+			sf::Vector2f(m_window.getSize().x * 0.5f, m_window.getSize().y * 0.5f),
+			sf::Vector2f(20.0f, 20.0f),
+			"data/sprites/star.png"));
+	m_objects.push_back(
+		Object(*this, 
+			sf::Vector2f(m_window.getSize().x * 0.5f, m_window.getSize().y * 0.5f),
+			sf::Vector2f(20.0f, 20.0f),
+			"data/sprites/trail.png"));
+
+#pragma endregion
+#pragma region GameElements
+
+	m_character.Init(m_window.getSize());
+	m_character.move(sf::Vector2f(0.5f * m_window.getSize().x, 0.5f * m_window.getSize().y));
+
+#pragma endregion
 
 }
 void Game::Loop()
@@ -99,13 +110,13 @@ void Game::Loop()
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 			{
 				//TODO : Move Left
-				m_character.MoveLeft();
+				m_character.MoveLeft(b2Vec2(-100.0f, 0.0f));
 				
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 			{
 				//TODO: Move Right
-				m_character.MoveRight();
+				m_character.MoveRight(b2Vec2(100.0f, 0.0f));
 			}
 			
 		}
@@ -117,8 +128,17 @@ void Game::Loop()
 		int32 velocityIterations = 6;
 		int32 positionIterations = 2;
 		m_world.Step(timeStep, velocityIterations, positionIterations);
-
+		
+		//Updating Elements
 		m_character.Update();
+		for (auto& boundaries : m_boundaries) 
+		{
+			boundaries.Update();
+		}
+		for (auto& object : m_objects) 
+		{
+			object.Update();
+		}
 
 #pragma endregion
 #pragma region Graphical process
@@ -133,6 +153,14 @@ void Game::Loop()
 		m_window.clear();
 		// Render All elements
 		m_window.draw(m_character);
+		for (auto& boundary : m_boundaries) 
+		{
+			m_window.draw(boundary);
+		}
+		for (auto& object : m_objects)
+		{
+			m_window.draw(object);
+		}
 		// Display all elements
 		m_window.display();
 

@@ -1,29 +1,27 @@
-#include <iostream>
-
 #include "boundary.h"
 #include "game.h"
 #include "SFML_Utilities.h"
 
-Boundary::Boundary(Game& game_, sf::Vector2f pos_, sf::Vector2f size_) : m_game(game_)
+Boundary::Boundary(Game& game, sf::Vector2f pos, sf::Vector2f size) : m_game(game)
 {
-    Init(pos_, size_);
+    Init(pos, size);
 }
 
-void Boundary::Init(sf::Vector2f pos_, sf::Vector2f size_) {
+void Boundary::Init(sf::Vector2f pos, sf::Vector2f size) {
 
     // Defing the box 2D elements
     b2BodyDef bodyDef;
     bodyDef.fixedRotation = true;
     bodyDef.type = b2BodyType::b2_staticBody; // Static !!! it does not move when something collides
-    bodyDef.position.Set(pixelsToMeters(pos_).x, pixelsToMeters(pos_).y);
+    bodyDef.position.Set(pixelsToMeters(pos).x, pixelsToMeters(pos).y);
     bodyDef.angle = 0.0f;
     m_body = this->m_game.getWorld().CreateBody(&bodyDef);
 
-    // Shape of the physical (A box)
+    // Shape of the physical (box)
     b2PolygonShape boundaryBox;
     boundaryBox.SetAsBox(
-        pixelsToMeters(size_.x),
-        pixelsToMeters(size_.y),
+        pixelsToMeters(size.x),
+        pixelsToMeters(size.y),
         b2Vec2_zero,
         degToRad(.0f));
 
@@ -31,15 +29,14 @@ void Boundary::Init(sf::Vector2f pos_, sf::Vector2f size_) {
     b2FixtureDef playerFixtureDef;
     playerFixtureDef.shape = &boundaryBox;
     playerFixtureDef.density = 1.0f;
-    playerFixtureDef.friction = 0.2f;
-    playerFixtureDef.restitution = 0.01f; // Make it bounce a little bit
+    playerFixtureDef.friction = 0.0f;
+    playerFixtureDef.restitution = 0.00f; // Make it bounce a little bit
     m_body->CreateFixture(&playerFixtureDef);
-
+    
     // Defining the shape
-    m_shape.setSize(size_);
+    m_shape.setSize(size);
     m_shape.setFillColor(sf::Color::Cyan);
-    m_shape.setOrigin(0.5f * size_.x, 0.5f * size_.y);
-
+    m_shape.setOrigin(0.5f * size.x, 0.5f * size.y);
 }
 
 void Boundary::Update() {

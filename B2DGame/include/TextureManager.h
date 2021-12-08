@@ -10,6 +10,7 @@ protected:
 	static TextureManager* m_textureManager;
 
 	sf::Texture m_starTexture;
+	sf::Texture m_trailTexture;
 
 public:
 
@@ -29,5 +30,6 @@ public:
 
 	//GETTERS
 	sf::Texture& GetStarTexture();
+	sf::Texture& GetTrailTexture();
 
 };

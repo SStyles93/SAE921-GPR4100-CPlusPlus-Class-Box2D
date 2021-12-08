@@ -9,6 +9,8 @@
 #include "character.h"
 #include "boundary.h"
 #include "object.h"
+#include "star.h"
+#include "trail.h"
 #include "TextureManager.h"
 
 
@@ -28,7 +30,8 @@ private:
 	
 	//Boundaries
 	std::vector<Boundary> m_boundaries;
-	std::vector<Object> m_objects;
+	std::vector<Star> m_stars;
+	std::vector<Trail> m_trails;
 
 public:
 

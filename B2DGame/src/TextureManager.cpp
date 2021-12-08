@@ -5,6 +5,7 @@ TextureManager* TextureManager::m_textureManager = nullptr;
 TextureManager::TextureManager()
 {
     m_starTexture.loadFromFile("data/sprites/star.png");
+    m_trailTexture.loadFromFile("data/sprites/trail.png");
 }
 
 
@@ -26,4 +27,8 @@ TextureManager* TextureManager::Instance()
 sf::Texture& TextureManager::GetStarTexture() 
 {
     return m_starTexture;
+}
+sf::Texture& TextureManager::GetTrailTexture() 
+{
+    return m_trailTexture;
 }

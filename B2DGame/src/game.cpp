@@ -2,6 +2,8 @@
 
 #include "game.h"
 
+#include "iostream"
+
 #pragma region Ctor
 
 Game::Game() :
@@ -61,12 +63,19 @@ void Game::Init()
 #pragma endregion
 #pragma region BackGroundElements
 
-	for (int i = 0; i < 1; i++) 
+	for (int star = 0; star < 100; star++) 
 	{
-		m_objects.push_back(
-		Object(*this,
-			sf::Vector2f(m_window.getSize().x * 0.5f/** rndPos(generator)*/, m_window.getSize().y * 0.0f /** rndPos(generator)*/),
+		m_stars.push_back(
+		Star(*this,
+			sf::Vector2f(m_window.getSize().x * rndPos(generator), m_window.getSize().y * rndPos(generator)),
 			rndAngle(generator)));
+	}
+	for (int trail = 0; trail < 10; trail++)
+	{
+		m_trails.push_back(
+			Trail(*this,
+				sf::Vector2f(m_window.getSize().x * rndPos(generator), m_window.getSize().y * rndPos(generator)),
+				rndAngle(generator)));
 	}
 	
 	
@@ -140,6 +149,10 @@ void Game::Loop()
 		int32 velocityIterations = 6;
 		int32 positionIterations = 2;
 		m_world.Step(timeStep, velocityIterations, positionIterations);
+
+		std::random_device rd; // obtain a random number from hardware
+		std::mt19937 generator(rd()); // seed the generator
+		std::uniform_real_distribution<> rndPos(-1.0f, 1.0f); // define the range
 		
 		//Updating Elements
 		m_character.Update();
@@ -147,12 +160,22 @@ void Game::Loop()
 		{
 			boundaries.Update();
 		}
-		for (auto& object : m_objects) 
+		for (auto& star : m_stars)
 		{
-			object.Update();
-			if (object.getPosition().y >= m_window.getSize().y)
+			star.Update();
+			//std::cout << object.GetSprite().getPosition().y << std::endl;
+			if (star.GetSprite().getPosition().y >= m_window.getSize().y)
 			{
-				object.setPosition(object.getPosition().x, 0.0f);
+				star.GetSprite().setPosition(star.GetSprite().getPosition().x, 0.0f);
+			}
+		}
+		for (auto& trails : m_trails)
+		{
+			trails.Update();
+			//std::cout << object.GetSprite().getPosition().y << std::endl;
+			if (trails.GetSprite().getPosition().y >= m_window.getSize().y)
+			{
+				trails.GetSprite().setPosition(m_window.getSize().x * rndPos(generator), 0.0f);
 			}
 		}
 
@@ -172,7 +195,11 @@ void Game::Loop()
 		{
 			m_window.draw(boundary);
 		}
-		for (auto& object : m_objects) 
+		for (auto& object : m_stars) 
+		{
+			m_window.draw(object);
+		}
+		for (auto& object : m_trails)
 		{
 			m_window.draw(object);
 		}

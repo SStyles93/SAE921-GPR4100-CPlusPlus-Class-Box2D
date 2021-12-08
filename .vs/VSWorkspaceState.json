@@ -7,6 +7,6 @@
     "\\B2DGame\\include",
     "\\B2DGame\\src"
   ],
-  "SelectedNode": "\\B2DGame\\data\\sprites\\star.png",
+  "SelectedNode": "\\B2DGame\\src\\trail.cpp",
   "PreviewInSolutionExplorer": false
 }

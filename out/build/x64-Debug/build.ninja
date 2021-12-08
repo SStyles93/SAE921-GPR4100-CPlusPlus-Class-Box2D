@@ -140,6 +140,24 @@ build B2DGame\CMakeFiles\B2DGame.dir\src\object.cpp.obj: CXX_COMPILER__B2DGame_D
   TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
   TARGET_PDB = B2DGame\B2DGame.pdb
 
+build B2DGame\CMakeFiles\B2DGame.dir\src\star.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\star.cpp || cmake_object_order_depends_target_B2DGame
+  DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
+  INCLUDES = -I..\..\..\B2DGame\include -IC:\dev\0_Installs\vcpkg\installed\x64-windows\include
+  OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
+  OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
+  TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
+  TARGET_PDB = B2DGame\B2DGame.pdb
+
+build B2DGame\CMakeFiles\B2DGame.dir\src\trail.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\trail.cpp || cmake_object_order_depends_target_B2DGame
+  DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
+  INCLUDES = -I..\..\..\B2DGame\include -IC:\dev\0_Installs\vcpkg\installed\x64-windows\include
+  OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
+  OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
+  TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
+  TARGET_PDB = B2DGame\B2DGame.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target B2DGame
@@ -148,7 +166,7 @@ build B2DGame\CMakeFiles\B2DGame.dir\src\object.cpp.obj: CXX_COMPILER__B2DGame_D
 #############################################
 # Link the executable B2DGame\B2DGame.exe
 
-build B2DGame\B2DGame.exe: CXX_EXECUTABLE_LINKER__B2DGame_Debug B2DGame\CMakeFiles\B2DGame.dir\src\SFML_Utilities.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\TextureManager.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\boundary.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\character.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\game.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\main.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\object.cpp.obj | C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-graphics-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-audio-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-window-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-system-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\manual-link\sfml-main-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\box2d.lib || B2DGame\DataTarget-B2DGame
+build B2DGame\B2DGame.exe: CXX_EXECUTABLE_LINKER__B2DGame_Debug B2DGame\CMakeFiles\B2DGame.dir\src\SFML_Utilities.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\TextureManager.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\boundary.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\character.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\game.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\main.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\object.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\star.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\trail.cpp.obj | C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-graphics-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-audio-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-window-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-system-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\manual-link\sfml-main-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\box2d.lib || B2DGame\DataTarget-B2DGame
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-graphics-d.lib  C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-audio-d.lib  C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-window-d.lib  C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-system-d.lib  C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\manual-link\sfml-main-d.lib  C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\box2d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

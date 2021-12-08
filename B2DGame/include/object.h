@@ -7,11 +7,10 @@ class Game;
 
 class Object : public sf::Drawable, public sf::Transformable
 {
-private:
+protected:
 	//Root
 	Game& m_game;
 
-	//Star
 	sf::Sprite m_sprite;
 	std::string m_spriteAdress;
 	sf::Texture m_texture;
@@ -23,7 +22,9 @@ private:
 
 public:
 
-	explicit Object(Game& game, sf::Vector2f pos, float angle);
+	sf::Sprite& GetSprite() { return m_sprite; };
+	Object() {};
+	/*explicit Object(Game game, sf::Vector2f pos, float angle);*/
 	void Update();
 
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;

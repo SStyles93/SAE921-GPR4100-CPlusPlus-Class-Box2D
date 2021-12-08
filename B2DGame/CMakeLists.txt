@@ -44,7 +44,7 @@ add_executable(${EXECUTABLE_CUSTOM_NAME} ${PLATFORMER_SRC}
 "src/object.cpp" "include/object.h"
 "include/TextureManager.h" "src/TextureManager.cpp"
 "include/star.h" "src/star.cpp"
-"include/trail.h" "src/trail.cpp")
+"include/trail.h" "src/trail.cpp" "src/ContactListener.cpp" "include/ContactListener.h" "src/UserData.cpp" "include/UserData.h" "include/TrailManager.h" "src/TrailManager.cpp")
 add_dependencies(${EXECUTABLE_CUSTOM_NAME} DataTarget-${EXECUTABLE_CUSTOM_NAME})
 target_link_libraries(${EXECUTABLE_CUSTOM_NAME} PRIVATE sfml-graphics sfml-audio sfml-window sfml-system)
 

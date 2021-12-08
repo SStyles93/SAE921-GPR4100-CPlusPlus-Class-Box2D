@@ -12,6 +12,8 @@
 #include "star.h"
 #include "trail.h"
 #include "TextureManager.h"
+#include "ContactListener.h"
+#include "TrailManager.h"
 
 
 class Game {
@@ -31,7 +33,8 @@ private:
 	//Boundaries
 	std::vector<Boundary> m_boundaries;
 	std::vector<Star> m_stars;
-	std::vector<Trail> m_trails;
+	TrailManager m_trailManager;
+	ContactListener m_contacts;
 
 public:
 
@@ -46,6 +49,9 @@ public:
 	
 	void Init();
 	void Loop();
+
+	void SetDamageToRocket(float damages);
+	void DestroyTrail(int idTrail);
 
 #pragma endregion
 #pragma region Getter/Setter

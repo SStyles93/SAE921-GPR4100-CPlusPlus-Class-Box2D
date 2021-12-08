@@ -9,7 +9,9 @@
 Game::Game() :
 	m_gravity(0.0f, -.981f),
 	m_world(m_gravity),
-	m_character(*this)
+	m_character(*this),
+	m_contacts(*this),
+	m_trailManager(m_world)
 {}
 
 #pragma endregion
@@ -70,17 +72,11 @@ void Game::Init()
 			sf::Vector2f(m_window.getSize().x * rndPos(generator), m_window.getSize().y * rndPos(generator)),
 			rndAngle(generator)));
 	}
-	for (int trail = 0; trail < 10; trail++)
-	{
-		m_trails.push_back(
-			Trail(*this,
-				sf::Vector2f(m_window.getSize().x * rndPos(generator), m_window.getSize().y * rndPos(generator)),
-				rndAngle(generator)));
-	}
-	
-	
+
 #pragma endregion
 #pragma region GameElements
+
+	m_world.SetContactListener(&m_contacts);
 
 	m_character.Init(m_window.getSize());
 	m_character.move(sf::Vector2f(0.5f * m_window.getSize().x, 0.5f * m_window.getSize().y));
@@ -169,15 +165,8 @@ void Game::Loop()
 				star.GetSprite().setPosition(star.GetSprite().getPosition().x, 0.0f);
 			}
 		}
-		for (auto& trails : m_trails)
-		{
-			trails.Update();
-			//std::cout << object.GetSprite().getPosition().y << std::endl;
-			if (trails.GetSprite().getPosition().y >= m_window.getSize().y)
-			{
-				trails.GetSprite().setPosition(m_window.getSize().x * rndPos(generator), 0.0f);
-			}
-		}
+
+		m_trailManager.Update();
 
 #pragma endregion
 #pragma region Graphical process
@@ -199,17 +188,26 @@ void Game::Loop()
 		{
 			m_window.draw(object);
 		}
-		for (auto& object : m_trails)
-		{
-			m_window.draw(object);
-		}
 		m_window.draw(m_character);
-		
+		//Draw Trails
+		m_window.draw(m_trailManager);
 		// Display all elements
 		m_window.display();
 
 #pragma endregion
 	}
+}
+#pragma endregion
+#pragma region ContactMethods
+
+void Game::DestroyTrail(int trailId)
+{
+
+}
+
+void Game::SetDamageToRocket(float damage) 
+{
+	m_character.SetDamage(damage);
 }
 
 #pragma endregion

@@ -89,3 +89,11 @@ void Character::SetSpriteAlpha(sf::Sprite& sprite, float alphaValue)
 {
 	sprite.setColor(sf::Color(m_secondSprite.getColor().r, m_secondSprite.getColor().g, m_secondSprite.getColor().b, alphaValue));
 }
+float Character::GetHealth() 
+{
+	return m_health;
+}
+void Character::SetDamage(float damage)
+{
+	m_health -= damage;
+}

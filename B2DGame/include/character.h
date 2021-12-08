@@ -22,6 +22,9 @@ protected:
 	b2Body* m_body = nullptr;
 
 	Game& m_game;
+
+	//Life 
+	float m_health = 100;
 	
 public:
 
@@ -39,12 +42,15 @@ public:
 	void Init(sf::Vector2u winsize);
 	void Update();
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+	void SetSpriteAlpha(sf::Sprite& sprite, float alphaValue);
+
 
 	void Thruster(b2Vec2 b2Vec2);
 	void MoveLeft(b2Vec2 force);
 	void MoveRight(b2Vec2 force);
 
-	void SetSpriteAlpha(sf::Sprite& sprite, float alphaValue);
+	void SetDamage(float damage);
+	float GetHealth();
 
 #pragma endregion
 

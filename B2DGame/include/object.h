@@ -9,7 +9,7 @@ class Object : public sf::Drawable, public sf::Transformable
 {
 protected:
 	//Root
-	Game& m_game;
+	//Game& m_game;
 
 	sf::Sprite m_sprite;
 	std::string m_spriteAdress;
@@ -23,7 +23,7 @@ protected:
 public:
 
 	sf::Sprite& GetSprite() { return m_sprite; };
-	Object() {};
+	//Object() {};
 	/*explicit Object(Game game, sf::Vector2f pos, float angle);*/
 	void Update();
 

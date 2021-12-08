@@ -9,6 +9,7 @@
 #include "character.h"
 #include "boundary.h"
 #include "object.h"
+#include "TextureManager.h"
 
 
 class Game {
@@ -31,6 +32,8 @@ private:
 
 public:
 
+	bool elementsLoaded = false;
+
 #pragma region Ctor
 
 	Game();
@@ -44,7 +47,7 @@ public:
 #pragma endregion
 #pragma region Getter/Setter
 
-	b2World& getWorld() { return m_world; };
+	b2World& GetWorld() { return m_world; }; 
 
 #pragma endregion
 #pragma region Conversion Methods

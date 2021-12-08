@@ -1,3 +1,5 @@
+#include <random>
+
 #include "game.h"
 
 #pragma region Ctor
@@ -13,16 +15,24 @@ Game::Game() :
 
 void Game::Init() 
 {
+	TextureManager* texture_manager = TextureManager::Instance();
+
+	std::random_device rd; // obtain a random number from hardware
+	std::mt19937 generator(rd()); // seed the generator
+	std::uniform_real_distribution<> rndPos(-1.0f, 1.0f); // define the range
+	std::uniform_real_distribution<> rndAngle(-1.0f, 1.0f); // define the range
+
+
 #pragma region Window
 
 	m_window.create(sf::VideoMode(1280, 1024), "ToTheMoonAndBack");
 	m_window.setVerticalSyncEnabled(true);
 	m_window.setFramerateLimit(60.0f);
-
+	
 #pragma endregion
 #pragma region WindowLimits
 
-	// Set Boudaries
+	// Set Boudaries (Game&, Position, Size)
 	// Top Boundary
 	m_boundaries.push_back(
 		Boundary(
@@ -51,19 +61,15 @@ void Game::Init()
 #pragma endregion
 #pragma region BackGroundElements
 
-
-	// Background elements
-	m_objects.push_back(
-		Object(*this, 
-			sf::Vector2f(m_window.getSize().x * 0.5f, m_window.getSize().y * 0.5f),
-			sf::Vector2f(20.0f, 20.0f),
-			"data/sprites/star.png"));
-	m_objects.push_back(
-		Object(*this, 
-			sf::Vector2f(m_window.getSize().x * 0.5f, m_window.getSize().y * 0.5f),
-			sf::Vector2f(20.0f, 20.0f),
-			"data/sprites/trail.png"));
-
+	for (int i = 0; i < 1; i++) 
+	{
+		m_objects.push_back(
+		Object(*this,
+			sf::Vector2f(m_window.getSize().x * 0.5f/** rndPos(generator)*/, m_window.getSize().y * 0.0f /** rndPos(generator)*/),
+			rndAngle(generator)));
+	}
+	
+	
 #pragma endregion
 #pragma region GameElements
 
@@ -106,6 +112,7 @@ void Game::Loop()
 				m_character.Thruster(b2Vec2(0.0f, 100.0f));
 				//Set alpha to max
 				m_character.SetSpriteAlpha(m_character.m_secondSprite, m_character.m_thrusterAlphaValue = 255.0f);
+
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 			{
@@ -143,6 +150,10 @@ void Game::Loop()
 		for (auto& object : m_objects) 
 		{
 			object.Update();
+			if (object.getPosition().y >= m_window.getSize().y)
+			{
+				object.setPosition(object.getPosition().x, 0.0f);
+			}
 		}
 
 #pragma endregion
@@ -157,15 +168,16 @@ void Game::Loop()
 		// Clear all background
 		m_window.clear();
 		// Render All elements
-		m_window.draw(m_character);
 		for (auto& boundary : m_boundaries) 
 		{
 			m_window.draw(boundary);
 		}
-		for (auto& object : m_objects)
+		for (auto& object : m_objects) 
 		{
 			m_window.draw(object);
 		}
+		m_window.draw(m_character);
+		
 		// Display all elements
 		m_window.display();
 

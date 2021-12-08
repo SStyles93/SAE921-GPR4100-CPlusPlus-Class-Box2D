@@ -23,9 +23,7 @@ private:
 
 public:
 
-	explicit Object(Game& game, sf::Vector2f pos, sf::Vector2f size, std::string m_spriteAdress);
-
-	void Init(sf::Vector2f pos, sf::Vector2f size);
+	explicit Object(Game& game, sf::Vector2f pos, float angle);
 	void Update();
 
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;

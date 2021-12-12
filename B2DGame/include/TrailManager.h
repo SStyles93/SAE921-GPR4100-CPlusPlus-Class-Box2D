@@ -21,7 +21,7 @@ public:
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 	void Update();
 
-	void AddTrail(sf::Vector2f startPos, float angle);
+	void AddTrail(sf::Vector2f startPos);
 	void DestroyTrail(int trailId);
 
 };

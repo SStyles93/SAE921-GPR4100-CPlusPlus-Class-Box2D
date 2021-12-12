@@ -26,7 +26,6 @@ void Game::Init()
 	std::uniform_real_distribution<> rndPos(-1.0f, 1.0f); // define the range
 	std::uniform_real_distribution<> rndAngle(-1.0f, 1.0f); // define the range
 
-
 #pragma region Window
 
 	m_window.create(sf::VideoMode(1280, 1024), "ToTheMoonAndBack");
@@ -67,10 +66,12 @@ void Game::Init()
 
 	for (int star = 0; star < 100; star++) 
 	{
+		float scale = rndPos(generator);
 		m_stars.push_back(
-		Star(*this,
-			sf::Vector2f(m_window.getSize().x * rndPos(generator), m_window.getSize().y * rndPos(generator)),
-			rndAngle(generator)));
+			Star(*this,
+				sf::Vector2f(m_window.getSize().x * rndPos(generator), m_window.getSize().y * rndPos(generator)),
+				sf::Vector2f(scale, scale),
+				rndAngle(generator)));
 	}
 
 #pragma endregion
@@ -139,35 +140,67 @@ void Game::Loop()
 		}
 
 #pragma region Physical process
+		if(!m_gameOver)
+		{
+			// Updating the world with a delay
+			float timeStep = 1.0f / 60.0f;
+			int32 velocityIterations = 6;
+			int32 positionIterations = 2;
+			m_world.Step(timeStep, velocityIterations, positionIterations);
 
-		// Updating the world with a delay
-		float timeStep = 1.0f / 60.0f;
-		int32 velocityIterations = 6;
-		int32 positionIterations = 2;
-		m_world.Step(timeStep, velocityIterations, positionIterations);
-
-		std::random_device rd; // obtain a random number from hardware
-		std::mt19937 generator(rd()); // seed the generator
-		std::uniform_real_distribution<> rndPos(-1.0f, 1.0f); // define the range
+			std::random_device rd; // obtain a random number from hardware
+			std::mt19937 generator(rd()); // seed the generator
+			std::uniform_real_distribution<> rndPos(-1.0f, 1.0f); // define the range
 		
-		//Updating Elements
-		m_character.Update();
-		for (auto& boundaries : m_boundaries) 
-		{
-			boundaries.Update();
-		}
-		for (auto& star : m_stars)
-		{
-			star.Update();
-			//std::cout << object.GetSprite().getPosition().y << std::endl;
-			if (star.GetSprite().getPosition().y >= m_window.getSize().y)
+			//Updating Elements
+			//Character
+			m_character.Update();
+			for (auto& boundaries : m_boundaries) 
 			{
-				star.GetSprite().setPosition(star.GetSprite().getPosition().x, 0.0f);
+				boundaries.Update();
+			}
+			//Stars (BackGround)
+			for (auto& star : m_stars)
+			{
+				star.Update();
+				//std::cout << object.GetSprite().getPosition().y << std::endl;
+				if (star.GetSprite().getPosition().y >= m_window.getSize().y)
+				{
+					star.GetSprite().setPosition(star.GetSprite().getPosition().x, 0.0f);
+				}
+			}
+
+			//Trails
+			m_trailManager.Update();
+
+			// Tick every 1.0sec
+			sf::Time elapsed = m_clock.restart();
+			m_deltaTime += elapsed;
+
+			if (m_deltaTime.asSeconds() > 1.0f) {
+
+				std::random_device rd; // obtain a random number from hardware
+				std::mt19937 generator(rd()); // seed the generator
+				std::uniform_int_distribution<> rndX(0, m_window.getSize().x); // define the range
+				std::uniform_int_distribution<> rndY(0, m_window.getSize().y); // define the range
+
+				sf::Vector2f rdnPos(rndX(generator), 0.0f);
+				//test pos
+				sf::Vector2f testPos(m_window.getSize().x * 0.5f, 0.0f);
+
+				// Pop Trail
+				m_trailManager.AddTrail(testPos);
+
+				m_deltaTime = sf::Time::Zero;
+
+			}
+
+			if (m_character.GetHealth() <= 0) 
+			{
+				m_gameOver = true;
+				return;
 			}
 		}
-
-		m_trailManager.Update();
-
 #pragma endregion
 #pragma region Graphical process
 
@@ -180,14 +213,17 @@ void Game::Loop()
 		// Clear all background
 		m_window.clear();
 		// Render All elements
+		//Draw Boundaries
 		for (auto& boundary : m_boundaries) 
 		{
 			m_window.draw(boundary);
 		}
-		for (auto& object : m_stars) 
+
+		for (auto& star : m_stars) 
 		{
-			m_window.draw(object);
+			m_window.draw(star);
 		}
+		//Draw Character
 		m_window.draw(m_character);
 		//Draw Trails
 		m_window.draw(m_trailManager);
@@ -202,7 +238,7 @@ void Game::Loop()
 
 void Game::DestroyTrail(int trailId)
 {
-
+	m_trailManager.DestroyTrail(trailId);
 }
 
 void Game::SetDamageToRocket(float damage) 

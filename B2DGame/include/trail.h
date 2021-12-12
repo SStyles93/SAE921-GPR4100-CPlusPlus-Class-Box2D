@@ -1,7 +1,7 @@
 #pragma once
 
-#include "object.h"
 #include "UserData.h"
+#include "object.h"
 #include "SFML_Utilities.h"
 
 class Game;
@@ -22,7 +22,7 @@ protected:
 	//B2D
 	b2Body* m_body = nullptr;
 
-	UserData* m_userData = new UserData(UserDataType::METEOR);
+	UserData* m_userData = new UserData(UserDataType::TRAIL);
 	static long m_localTrailId;
 	static long getGlobalId();
 
@@ -36,7 +36,7 @@ public:
 
 	sf::Sprite& GetSprite() { return m_sprite; };
 
-	explicit Trail(b2World& world, sf::Vector2f pos, float angle);
+	explicit Trail(b2World& world, sf::Vector2f pos);
 	void Update();
 
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;

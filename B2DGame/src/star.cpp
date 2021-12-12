@@ -1,12 +1,13 @@
 #include "game.h"
 #include "star.h"
 
-Star::Star(Game& game, sf::Vector2f pos, float angle) : m_game(game)
+Star::Star(Game& game, sf::Vector2f pos, sf::Vector2f scale, float angle) : m_game(game)
 {
 	TextureManager* texture_manager = TextureManager::Instance();
 	m_sprite.setTexture(texture_manager->GetStarTexture());
 	m_sprite.setOrigin(texture_manager->GetStarTexture().getSize().x * 0.5f, texture_manager->GetStarTexture().getSize().y * 0.5f);
 	m_sprite.setPosition(pos);
+	m_sprite.setScale(scale);
 	m_sprite.setRotation(angle);
 }
 

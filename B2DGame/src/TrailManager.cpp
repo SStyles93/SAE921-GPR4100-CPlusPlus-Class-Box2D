@@ -28,14 +28,13 @@ void TrailManager::Update()
 	}
 }
 
-void TrailManager::AddTrail(sf::Vector2f startPos, float angle)
+void TrailManager::AddTrail(sf::Vector2f startPos)
 {
 
 	m_trails.emplace_back(
 		Trail(
 			m_world,
-			startPos,
-			angle)
+			startPos)
 	);
 }
 

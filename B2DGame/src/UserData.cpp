@@ -30,11 +30,14 @@ const std::string UserData::UserDataTypeToString(UserDataType type_)
 
 	switch (type_)
 	{
+	case UserDataType::TRAIL:
+		return "TRAIL";
+		break;
 	case UserDataType::ROCKET:
 		return "ROCKET";
 		break;
-	case UserDataType::METEOR:
-		return "METEOR";
+	case UserDataType::LIMIT:
+		return "LIMIT";
 		break;
 	case UserDataType::NONE:
 	default:

@@ -15,6 +15,7 @@ void Boundary::Init(sf::Vector2f pos, sf::Vector2f size) {
     bodyDef.type = b2BodyType::b2_staticBody; // Static !!! it does not move when something collides
     bodyDef.position.Set(pixelsToMeters(pos).x, pixelsToMeters(pos).y);
     bodyDef.angle = 0.0f;
+    bodyDef.userData.pointer = reinterpret_cast<uintptr_t>(m_userData);
     m_body = this->m_game.GetWorld().CreateBody(&bodyDef);
 
     // Shape of the physical (box)

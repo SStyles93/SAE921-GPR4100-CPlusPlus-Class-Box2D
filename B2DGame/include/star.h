@@ -1,5 +1,6 @@
 #pragma once
 
+#include "UserData.h"
 #include "object.h"
 
 class Game;
@@ -24,7 +25,7 @@ public:
 
 	sf::Sprite& GetSprite() { return m_sprite; };
 
-	explicit Star(Game& game, sf::Vector2f pos, float angle);
+	explicit Star(Game& game, sf::Vector2f pos, sf::Vector2f scale, float angle);
 	void Update();
 
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;

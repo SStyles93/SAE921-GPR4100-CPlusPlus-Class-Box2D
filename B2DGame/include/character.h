@@ -1,5 +1,6 @@
 #pragma once
 
+#include "UserData.h"
 #include "SFML/Graphics.hpp"
 #include "box2d/box2d.h"
 
@@ -22,6 +23,8 @@ protected:
 	b2Body* m_body = nullptr;
 
 	Game& m_game;
+
+	UserData* m_userData = new UserData(UserDataType::ROCKET);
 
 	//Life 
 	float m_health = 100;

@@ -32,6 +32,7 @@ void Character::Init(sf::Vector2u winsize)
 	bodyDef.position.Set(windowSize.x / 2.0f, windowSize.y / 2.0f);
 	bodyDef.angularDamping = 0.75f;
 	bodyDef.linearDamping = 0.75f;
+	bodyDef.userData.pointer = reinterpret_cast<uintptr_t>(m_userData);
 	m_body = this->m_game.GetWorld().CreateBody(&bodyDef);
 	
 	//Shape of phisical elements

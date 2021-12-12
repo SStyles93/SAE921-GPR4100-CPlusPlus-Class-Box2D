@@ -3,20 +3,19 @@
 
 long Trail::m_localTrailId = 0;
 
-Trail::Trail(b2World& world, sf::Vector2f pos, float angle)
+Trail::Trail(b2World& world, sf::Vector2f pos)
 {
     //SET TEXTURE
 	TextureManager* textureManager = TextureManager::Instance();
 	m_sprite.setTexture(textureManager->GetTrailTexture());
 	m_sprite.setOrigin(textureManager->GetTrailTexture().getSize().x * 0.5f, textureManager->GetTrailTexture().getSize().y * 0.5f);
 	m_sprite.setScale(sf::Vector2f(3, 3));
-	m_sprite.setPosition(pos);
-	m_sprite.setRotation(angle);
+	//m_sprite.setPosition(pos);
 
-    //BODYDF
+    //BODYDEF
     b2BodyDef bodyDef;
-    bodyDef.fixedRotation = false;
-    bodyDef.type = b2_dynamicBody;
+    bodyDef.fixedRotation = true;
+    bodyDef.type = b2BodyType::b2_dynamicBody;
     bodyDef.angularDamping = 0.01f;
     bodyDef.linearDamping = 0.01f;
 
@@ -38,11 +37,13 @@ Trail::Trail(b2World& world, sf::Vector2f pos, float angle)
     playerFixtureDef.restitution = 0.0f;
 
     m_body->CreateFixture(&playerFixtureDef);
+    b2Vec2 physicalPos = pixelsToMeters(pos);
+    m_body->SetTransform(physicalPos, 0.0f);
 }
 
 void Trail::Update()
 {
-	m_sprite.setPosition(sf::Vector2f(m_sprite.getPosition().x, m_sprite.getPosition().y + 10.0f));
+	//m_sprite.setPosition(sf::Vector2f(m_sprite.getPosition().x, m_sprite.getPosition().y + 10.0f));
     
     // Get the position of the body
     b2Vec2 bodyPos = m_body->GetPosition();

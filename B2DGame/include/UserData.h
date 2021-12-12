@@ -5,9 +5,9 @@
 enum UserDataType : char
 {
     ROCKET = 'r',
-    METEOR = 'm',
-    NONE
-
+    TRAIL = 't',
+    LIMIT = 'l',
+    NONE = 'n'
 };
 
 class UserData

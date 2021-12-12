@@ -1,5 +1,6 @@
 #pragma once
 
+#include "UserData.h"
 #include "SFML/Graphics.hpp"
 #include "box2d/box2d.h"
 
@@ -17,6 +18,8 @@ private:
 
 	// The box 2D object
 	b2Body* m_body = nullptr;
+
+	UserData* m_userData = new UserData(UserDataType::LIMIT);
 
 
 public:

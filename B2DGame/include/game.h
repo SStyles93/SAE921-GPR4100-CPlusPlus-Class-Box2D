@@ -36,9 +36,13 @@ private:
 	TrailManager m_trailManager;
 	ContactListener m_contacts;
 
-public:
+	//Time Values
+	sf::Clock m_clock;
+	sf::Time m_deltaTime;
 
-	bool elementsLoaded = false;
+	bool m_gameOver = false;
+
+public:
 
 #pragma region Ctor
 

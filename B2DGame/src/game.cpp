@@ -4,7 +4,7 @@
 
 #include "iostream"
 
-#pragma region Ctor
+#pragma region CONSTRUCTOR
 
 Game::Game() :
 	m_gravity(0.0f, -.981f),
@@ -15,7 +15,7 @@ Game::Game() :
 {}
 
 #pragma endregion
-#pragma region Game Methods
+#pragma region GAME METHODS
 void Game::Init() 
 {
 	TextureManager* texture_manager = TextureManager::Instance();
@@ -40,25 +40,29 @@ void Game::Init()
 		Boundary(
 			*this,
 			sf::Vector2f(0.5f * m_window.getSize().x, 0.0f),
-			sf::Vector2f(m_window.getSize().x, 10.0f)));
+			sf::Vector2f(m_window.getSize().x, 10.0f), 
+			false));
 	// Bottom Boundary
 	m_boundaries.push_back(
 		Boundary(
 			*this,
 			sf::Vector2f(0.5f * m_window.getSize().x, m_window.getSize().y),
-			sf::Vector2f(m_window.getSize().x, 10.0f)));
+			sf::Vector2f(m_window.getSize().x, 10.0f),
+			true));
 	// Left Boundary
 	m_boundaries.push_back(
 		Boundary(
 			*this,
 			sf::Vector2f(0.0f, 0.5f * m_window.getSize().y),
-			sf::Vector2f(10.0f, m_window.getSize().y)));
+			sf::Vector2f(10.0f, m_window.getSize().y),
+			false));
 	// Right Boundary
 	m_boundaries.push_back(
 		Boundary(
 			*this,
 			sf::Vector2f(m_window.getSize().x, 0.5f * m_window.getSize().y),
-			sf::Vector2f(10.0f, m_window.getSize().y)));
+			sf::Vector2f(10.0f, m_window.getSize().y),
+			false));
 
 #pragma endregion
 #pragma region BackGroundElements
@@ -271,4 +275,5 @@ sf::Vector2f Game::metersToPixels(b2Vec2 meters)
 //pixelsMetersRation definition
 const float Game::pixelsMetersRatio = 100.0f;
 
+#pragma endregion
 #pragma endregion

@@ -5,6 +5,8 @@
 
 long Trail::m_localTrailId = 0;
 
+#pragma region CONSTRUCTOR
+
 Trail::Trail(b2World& world, sf::Vector2f pos)
 {
     //SET TEXTURE
@@ -48,21 +50,36 @@ Trail::Trail(b2World& world, sf::Vector2f pos)
     //m_body->SetTransform(b2Vec2(0, 0), 0);
 }
 
+#pragma endregion
+#pragma region METHODS
+
 void Trail::Update()
 {   
+    if (!m_isDead) 
+    {
         // Get the position of the body
         b2Vec2 bodyPos = m_body->GetPosition();
         // Translate meters to pixels
         sf::Vector2f graphicPosition = metersToPixels(bodyPos);
         // Set the position of the Graphic object
         setPosition(graphicPosition);
+    }
+    if (m_isDead)
+    {
+            m_body->DestroyFixture(m_body->GetFixtureList());
+    }
 }
-
 void Trail::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
+    if (!m_isDead) 
+    {
         states.transform *= getTransform();
-        target.draw(m_sprite, states);	
+        target.draw(m_sprite, states);
+    }
 }
+
+#pragma endregion
+#pragma region GETTER/SETTER
 
 long Trail::GetLocalId()
 {
@@ -80,3 +97,5 @@ bool Trail::GetIsDead()
 {
     return m_isDead;
 }
+
+#pragma endregion

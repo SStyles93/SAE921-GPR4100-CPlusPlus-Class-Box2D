@@ -11,23 +11,37 @@ protected:
 	//Root
 	Game& m_game;
 
-	//Star
+#pragma region SMFL
+
 	sf::Sprite m_sprite;
 	std::string m_spriteAdress;
 	sf::Texture m_texture;
 
-	sf::RectangleShape m_shape;
+#pragma endregion
+#pragma region BOX2D
 
 	//B2D
 	b2Body* m_body = nullptr;
 
+#pragma endregion
+
 public:
+
+#pragma region GETTER/SETTER
 
 	sf::Sprite& GetSprite() { return m_sprite; };
 
-	explicit Star(Game& game, sf::Vector2f pos, sf::Vector2f scale, float angle);
-	void Update();
+#pragma endregion
+#pragma region CONSTRUCTOR
 
+	explicit Star(Game& game, sf::Vector2f pos, sf::Vector2f scale, float angle);
+
+#pragma endregion
+#pragma region GAME METHODS
+
+	void Update();
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
+#pragma endregion
 
 };

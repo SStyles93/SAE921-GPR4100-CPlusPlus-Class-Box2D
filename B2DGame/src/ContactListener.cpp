@@ -37,7 +37,8 @@ void ContactListener::BeginContact(b2Contact* contact)
         }
         if (B_Data->getUserDataType() == UserDataType::LIMIT || A_Data->getUserDataType() == UserDataType::LIMIT)
         {
-            //m_game.DestroyTrail(A_Data->getLocalId());
+            m_game.DestroyTrail(A_Data->getLocalId());
+            m_game.DestroyTrail(B_Data->getLocalId());
         }
     }
 

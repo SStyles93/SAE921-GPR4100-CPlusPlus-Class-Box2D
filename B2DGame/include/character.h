@@ -9,7 +9,9 @@ class Game;
 class Character : public sf::Drawable, public sf::Transformable
 {
 protected:
-	//SMFL object
+
+#pragma region SMFL
+
 	//Ship
 	sf::Sprite m_mainSprite;
 	std::string m_mainSpriteAdress;
@@ -17,18 +19,21 @@ protected:
 	//Thruster
 	std::string m_secondSpriteAdress;
 	sf::Texture m_secondTexture;
-	//TEST
-	sf::ConvexShape shape;
-	
-	//Box2D object
+
+#pragma endregion
+#pragma region BOX2D
+
 	b2Body* m_body = nullptr;
-
 	Game& m_game;
-
 	UserData* m_userData = new UserData(UserDataType::ROCKET);
+
+#pragma endregion
+#pragma region CHARACTERISTICS
 
 	//Life 
 	float m_health = 100;
+
+#pragma endregion
 	
 public:
 
@@ -36,12 +41,12 @@ public:
 	sf::Sprite m_secondSprite;
 	float m_thrusterAlphaValue = 0;
 
-#pragma region Ctors
+#pragma region CONSTRUCTOR
 	
 	explicit Character(Game& game);
 
 #pragma endregion
-#pragma region Game Methods
+#pragma region GAME METHODS
 	
 	void Init(sf::Vector2u winsize);
 	void Update();
@@ -57,6 +62,5 @@ public:
 	float GetHealth();
 
 #pragma endregion
-
 
 };

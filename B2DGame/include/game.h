@@ -44,12 +44,12 @@ private:
 
 public:
 
-#pragma region Ctor
+#pragma region CONSTRUCTOR
 
 	Game();
 	
 #pragma endregion
-#pragma region Game Methods
+#pragma region GAME METHODS
 	
 	void Init();
 	void Loop();
@@ -58,12 +58,12 @@ public:
 	void DestroyTrail(int idTrail);
 
 #pragma endregion
-#pragma region Getter/Setter
+#pragma region GETTER/SETTER
 
 	b2World& GetWorld() { return m_world; }; 
 
 #pragma endregion
-#pragma region Conversion Methods
+#pragma region CONVERSION METHODS
 
 	static b2Vec2 pixelsToMeters(sf::Vector2f pixels);
 	static b2Vec2 pixelsToMeters(sf::Vector2u pixels);

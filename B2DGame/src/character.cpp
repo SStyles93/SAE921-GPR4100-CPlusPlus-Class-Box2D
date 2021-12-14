@@ -5,11 +5,16 @@
 
 #include "iostream"
 
+#pragma region CONSTRUCTOR
+
 Character::Character(Game& game) : m_game(game)
 {
 	m_mainSpriteAdress = "data/sprites/rocket.png";
 	m_secondSpriteAdress = "data/sprites/fire.png";
 }
+
+#pragma endregion
+#pragma region GAME METHODS
 
 void Character::Init(sf::Vector2u winsize)
 {
@@ -79,6 +84,10 @@ void Character::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	target.draw(m_mainSprite, states);
 	target.draw(m_secondSprite, states);
 }
+
+#pragma endregion
+#pragma region OBJECT METHODS
+
 void Character::Thruster(b2Vec2 b2Vec) 
 {
 	b2Vec2 force(b2Vec);
@@ -114,3 +123,5 @@ void Character::SetDamage(float damage)
 {
 	m_health -= damage;
 }
+
+#pragma endregion

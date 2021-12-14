@@ -12,18 +12,24 @@ enum class UserDataType : char
 
 class UserData
 {
+private:
+    UserDataType m_type;
+    signed long m_localId = -1;
+
 public:
+#pragma region CONSTRUCTOR
+
     UserData();
     UserData(UserDataType type_);
 
-    static const std::string UserDataTypeToString(UserDataType type_);
+#pragma endregion
+#pragma region GETTER/SETTER
 
     UserDataType getUserDataType();
     signed long getLocalId();
     void setLocalId(signed long id_);
 
-private:
-    UserDataType m_type;
-    signed long m_localId = -1;
+#pragma endregion
+    static const std::string UserDataTypeToString(UserDataType type_);
 
 };

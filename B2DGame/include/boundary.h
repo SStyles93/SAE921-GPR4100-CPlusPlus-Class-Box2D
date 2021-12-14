@@ -19,12 +19,11 @@ private:
 	// The box 2D object
 	b2Body* m_body = nullptr;
 
-	UserData* m_userData = new UserData(UserDataType::LIMIT);
-
+	UserData* m_userData = new UserData(UserDataType::NONE);
 
 public:
 
-	explicit Boundary(Game& game, sf::Vector2f pos, sf::Vector2f size);
+	explicit Boundary(Game& game, sf::Vector2f pos, sf::Vector2f size, bool flag);
 
 	void Init(sf::Vector2f, sf::Vector2f);
 	void Update();

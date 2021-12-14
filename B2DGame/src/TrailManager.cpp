@@ -3,10 +3,15 @@
 #include "SFML/Graphics/Drawable.hpp"
 #include "iostream"
 
+#pragma region CONSTRUCTOR
+
 TrailManager::TrailManager(b2World& world_) : m_world(world_)
 {
 
 }
+
+#pragma endregion
+#pragma region METHODS
 
 void TrailManager::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
@@ -14,22 +19,20 @@ void TrailManager::draw(sf::RenderTarget& target, sf::RenderStates states) const
 		target.draw(m, states);
 	}
 }
-
 void TrailManager::Update()
 {
-	auto trail = std::remove_if(
+	/*auto trail = std::remove_if(
 		m_trails.begin(),
 		m_trails.end(),
 		[](Trail& trail) {return trail.GetIsDead(); });
 	
 	m_trails.erase(trail, m_trails.end());
-	
+	*/
 	for (auto& trail : m_trails) 
 	{
 		trail.Update();
 	}
 }
-
 void TrailManager::AddTrail(sf::Vector2f startPos)
 {
 
@@ -38,7 +41,6 @@ void TrailManager::AddTrail(sf::Vector2f startPos)
 			m_world,
 			startPos));
 }
-
 void TrailManager::DestroyTrail(int trailId)
 {
 	// Check id, then put isDead to true
@@ -52,6 +54,8 @@ void TrailManager::DestroyTrail(int trailId)
 
 
 }
+
+#pragma endregion
 
 
 

@@ -2,8 +2,9 @@
 #include "game.h"
 #include "SFML_Utilities.h"
 
-Boundary::Boundary(Game& game, sf::Vector2f pos, sf::Vector2f size) : m_game(game)
+Boundary::Boundary(Game& game, sf::Vector2f pos, sf::Vector2f size, bool flag) : m_game(game)
 {
+    if (flag) m_userData = new UserData(UserDataType::LIMIT);
     Init(pos, size);
 }
 

@@ -7,8 +7,6 @@ TextureManager::TextureManager()
     m_starTexture.loadFromFile("data/sprites/star.png");
     m_trailTexture.loadFromFile("data/sprites/trail.png");
 }
-
-
 /**
  * Static methods should be defined outside the class.
  */
@@ -23,6 +21,7 @@ TextureManager* TextureManager::Instance()
     }
     return m_textureManager;
 }
+#pragma region GETTER/SETTER
 
 sf::Texture& TextureManager::GetStarTexture() 
 {
@@ -32,3 +31,5 @@ sf::Texture& TextureManager::GetTrailTexture()
 {
     return m_trailTexture;
 }
+
+#pragma endregion

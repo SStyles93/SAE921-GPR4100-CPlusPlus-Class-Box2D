@@ -8,26 +8,34 @@ class Game;
 class Object : public sf::Drawable, public sf::Transformable
 {
 protected:
-	//Root
-	//Game& m_game;
+
+#pragma region SMFL
 
 	sf::Sprite m_sprite;
 	std::string m_spriteAdress;
 	sf::Texture m_texture;
 
-	sf::RectangleShape m_shape;
+#pragma endregion
+#pragma region BOX2D
 
 	//B2D
 	b2Body* m_body = nullptr;
 
+#pragma endregion
+
 public:
 
-	sf::Sprite& GetSprite() { return m_sprite; };
-	//Object() {};
-	/*explicit Object(Game game, sf::Vector2f pos, float angle);*/
-	void Update();
+#pragma region GETTER/SETTER
 
+	sf::Sprite& GetSprite() { return m_sprite; };
+
+#pragma endregion
+#pragma region GAME METHODS
+
+	void Update();
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
+#pragma endregion
 
 };
  

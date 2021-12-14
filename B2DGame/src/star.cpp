@@ -1,6 +1,8 @@
 #include "game.h"
 #include "star.h"
 
+#pragma region CONSTRUCTOR
+
 Star::Star(Game& game, sf::Vector2f pos, sf::Vector2f scale, float angle) : m_game(game)
 {
 	TextureManager* texture_manager = TextureManager::Instance();
@@ -10,6 +12,9 @@ Star::Star(Game& game, sf::Vector2f pos, sf::Vector2f scale, float angle) : m_ga
 	m_sprite.setScale(scale);
 	m_sprite.setRotation(angle);
 }
+
+#pragma endregion
+#pragma region GAME METHODS
 
 void Star::Update()
 {
@@ -21,3 +26,5 @@ void Star::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	states.transform *= getTransform();
 	target.draw(m_sprite, states);
 }
+
+#pragma endregion

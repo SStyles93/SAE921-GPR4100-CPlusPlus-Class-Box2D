@@ -24,21 +24,21 @@ protected:
 
 	UserData* m_userData = new UserData(UserDataType::TRAIL);
 	static long m_localTrailId;
-	static long getGlobalId();
+	static long GetGlobalId();
 
 	bool m_isDead = false;
 
 public:
 
-	long getLocalId();
-	void setIsDead();
-	bool getIsDead();
-
+	long GetLocalId();
+	void SetIsDead();
+	bool GetIsDead();
 	sf::Sprite& GetSprite() { return m_sprite; };
+	b2Body* GetBody() { return m_body; };
 
 	explicit Trail(b2World& world, sf::Vector2f pos);
-	void Update();
 
+	void Update();
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 };

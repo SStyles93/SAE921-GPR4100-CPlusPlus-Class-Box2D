@@ -2,7 +2,7 @@
 
 #include <string>
 
-enum UserDataType : char
+enum class UserDataType : char
 {
     ROCKET = 'r',
     TRAIL = 't',
@@ -24,6 +24,6 @@ public:
 
 private:
     UserDataType m_type;
-    signed long m_localId;
+    signed long m_localId = -1;
 
 };

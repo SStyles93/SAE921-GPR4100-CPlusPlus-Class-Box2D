@@ -1,16 +1,18 @@
 #include "game.h"
 #include "trail.h"
 
+#include "iostream"
+
 long Trail::m_localTrailId = 0;
 
 Trail::Trail(b2World& world, sf::Vector2f pos)
 {
     //SET TEXTURE
 	TextureManager* textureManager = TextureManager::Instance();
+	m_sprite.setScale(sf::Vector2f(3, 3));
 	m_sprite.setTexture(textureManager->GetTrailTexture());
 	m_sprite.setOrigin(textureManager->GetTrailTexture().getSize().x * 0.5f, textureManager->GetTrailTexture().getSize().y * 0.5f);
-	m_sprite.setScale(sf::Vector2f(3, 3));
-	//m_sprite.setPosition(pos);
+    m_sprite.setPosition(0, -75);
 
     //BODYDEF
     b2BodyDef bodyDef;
@@ -20,14 +22,18 @@ Trail::Trail(b2World& world, sf::Vector2f pos)
     bodyDef.linearDamping = 0.01f;
 
     // SET DATAS
-    m_userData->setLocalId(getGlobalId());
+    m_userData->setLocalId(GetGlobalId());
     bodyDef.userData.pointer = reinterpret_cast<uintptr_t>(m_userData);
 
+    //CreateBody
     m_body = world.CreateBody(&bodyDef);
 
     // Shape of the physical (A box)
-    b2CircleShape hitBox;
-    hitBox.m_radius = pixelsToMeters(textureManager->GetTrailTexture().getSize().x * 0.5f);
+    b2PolygonShape hitBox;
+    hitBox.SetAsBox(
+        pixelsToMeters(textureManager->GetTrailTexture().getSize().x),
+        pixelsToMeters(textureManager->GetTrailTexture().getSize().y * 0.5f));
+    /*hitBox.SetAsBox(0.2f, 0.5f);*/
 
     // The fixture is what it defines the physic react
     b2FixtureDef playerFixtureDef;
@@ -39,41 +45,38 @@ Trail::Trail(b2World& world, sf::Vector2f pos)
     m_body->CreateFixture(&playerFixtureDef);
     b2Vec2 physicalPos = pixelsToMeters(pos);
     m_body->SetTransform(physicalPos, 0.0f);
+    //m_body->SetTransform(b2Vec2(0, 0), 0);
 }
 
 void Trail::Update()
-{
-	//m_sprite.setPosition(sf::Vector2f(m_sprite.getPosition().x, m_sprite.getPosition().y + 10.0f));
-    
-    // Get the position of the body
-    b2Vec2 bodyPos = m_body->GetPosition();
-
-    // Translate meters to pixels
-    sf::Vector2f graphicPosition = metersToPixels(bodyPos);
-
-    // Set the position of the Graphic object
-    setPosition(graphicPosition);
+{   
+        // Get the position of the body
+        b2Vec2 bodyPos = m_body->GetPosition();
+        // Translate meters to pixels
+        sf::Vector2f graphicPosition = metersToPixels(bodyPos);
+        // Set the position of the Graphic object
+        setPosition(graphicPosition);
 }
 
 void Trail::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	states.transform *= getTransform();
-	target.draw(m_sprite, states);
+        states.transform *= getTransform();
+        target.draw(m_sprite, states);	
 }
 
-long Trail::getLocalId()
+long Trail::GetLocalId()
 {
 	return m_userData->getLocalId();
 }
-long Trail::getGlobalId()
+long Trail::GetGlobalId()
 {
 	return m_localTrailId++;
 }
-void Trail::setIsDead()
+void Trail::SetIsDead()
 {
     m_isDead = true;
 }
-bool Trail::getIsDead()
+bool Trail::GetIsDead()
 {
     return m_isDead;
 }

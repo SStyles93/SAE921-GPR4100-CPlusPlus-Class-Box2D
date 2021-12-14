@@ -31,12 +31,12 @@ float radToDeg(float radians_) {
 
 b2Vec2 pixelsToMeters(sf::Vector2f pixels)
 {
-    return b2Vec2(pixels.x / pixelsMetersRatio, -1.0f * pixels.y / pixelsMetersRatio);
+    return b2Vec2(pixels.x / pixelsMetersRatio, pixels.y / pixelsMetersRatio * -1.0f);
 }
 
 b2Vec2 pixelsToMeters(sf::Vector2u pixels)
 {
-    return b2Vec2(pixels.x / pixelsMetersRatio, -1.0f * pixels.y / pixelsMetersRatio);
+    return b2Vec2(pixels.x / pixelsMetersRatio, pixels.y / pixelsMetersRatio * -1.0f);
 }
 
 float pixelsToMeters(float pixels)

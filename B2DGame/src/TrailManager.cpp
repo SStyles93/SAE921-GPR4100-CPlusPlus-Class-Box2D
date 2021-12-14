@@ -1,6 +1,7 @@
 #include "TrailManager.h"
 
 #include "SFML/Graphics/Drawable.hpp"
+#include "iostream"
 
 TrailManager::TrailManager(b2World& world_) : m_world(world_)
 {
@@ -16,15 +17,16 @@ void TrailManager::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void TrailManager::Update()
 {
-	auto a = std::remove_if(
+	auto trail = std::remove_if(
 		m_trails.begin(),
 		m_trails.end(),
-		[](Trail& a) {return a.getIsDead(); });
-
-	m_trails.erase(a, m_trails.end());
-
-	for (auto& aa : m_trails) {
-		aa.Update();
+		[](Trail& trail) {return trail.GetIsDead(); });
+	
+	m_trails.erase(trail, m_trails.end());
+	
+	for (auto& trail : m_trails) 
+	{
+		trail.Update();
 	}
 }
 
@@ -34,22 +36,18 @@ void TrailManager::AddTrail(sf::Vector2f startPos)
 	m_trails.emplace_back(
 		Trail(
 			m_world,
-			startPos)
-	);
+			startPos));
 }
 
 void TrailManager::DestroyTrail(int trailId)
 {
 	// Check id, then put isDead to true
-	auto a = std::find_if(
-		m_trails.begin(),
-		m_trails.end(),
-		[trailId](Trail& a) {return a.getLocalId() == trailId; }
-	);
+	auto trail = std::find_if
+	(m_trails.begin(),m_trails.end(),[trailId](Trail& trail) {return trail.GetLocalId() == trailId; });
 
-	if (a != m_trails.end())
+	if (trail != m_trails.end())
 	{
-		a->setIsDead();
+		trail->SetIsDead();
 	}
 
 

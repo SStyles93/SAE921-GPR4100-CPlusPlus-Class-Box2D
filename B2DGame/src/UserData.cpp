@@ -40,8 +40,9 @@ const std::string UserData::UserDataTypeToString(UserDataType type_)
 		return "LIMIT";
 		break;
 	case UserDataType::NONE:
-	default:
 		return "NONE";
+		break;
+	default:
 		break;
 	}
 }

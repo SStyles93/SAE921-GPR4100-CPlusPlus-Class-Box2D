@@ -17,7 +17,8 @@ protected:
 	//Thruster
 	std::string m_secondSpriteAdress;
 	sf::Texture m_secondTexture;
-
+	//TEST
+	sf::ConvexShape shape;
 	
 	//Box2D object
 	b2Body* m_body = nullptr;

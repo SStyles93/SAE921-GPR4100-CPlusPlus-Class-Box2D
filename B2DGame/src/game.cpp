@@ -16,7 +16,6 @@ Game::Game() :
 
 #pragma endregion
 #pragma region Game Methods
-
 void Game::Init() 
 {
 	TextureManager* texture_manager = TextureManager::Instance();
@@ -170,30 +169,30 @@ void Game::Loop()
 				}
 			}
 
-			//Trails
-			m_trailManager.Update();
-
 			// Tick every 1.0sec
 			sf::Time elapsed = m_clock.restart();
 			m_deltaTime += elapsed;
-
-			if (m_deltaTime.asSeconds() > 1.0f) {
+			
+			if (m_deltaTime.asSeconds() > 5.0f) 
+			{
 
 				std::random_device rd; // obtain a random number from hardware
 				std::mt19937 generator(rd()); // seed the generator
-				std::uniform_int_distribution<> rndX(0, m_window.getSize().x); // define the range
+				std::uniform_int_distribution<> rndX(0, m_window.getSize().x/2); // define the range
 				std::uniform_int_distribution<> rndY(0, m_window.getSize().y); // define the range
 
-				sf::Vector2f rdnPos(rndX(generator), 0.0f);
+				sf::Vector2f rndPos((rndX(generator)), pixelsToMeters(0.0f));
 				//test pos
-				sf::Vector2f testPos(m_window.getSize().x * 0.5f, 0.0f);
-
+				sf::Vector2f testPos(10, 0.0f);
+				std::cout << rndPos.x << "\n";
 				// Pop Trail
-				m_trailManager.AddTrail(testPos);
+				m_trailManager.AddTrail(rndPos);
 
 				m_deltaTime = sf::Time::Zero;
-
 			}
+
+			//Trails
+			m_trailManager.Update();
 
 			if (m_character.GetHealth() <= 0) 
 			{

@@ -35,13 +35,9 @@ void ContactListener::BeginContact(b2Contact* contact)
                 m_game.DestroyTrail(B_Data->getLocalId());
             }
         }
-        if (B_Data->getUserDataType() == UserDataType::LIMIT)
+        if (B_Data->getUserDataType() == UserDataType::LIMIT || A_Data->getUserDataType() == UserDataType::LIMIT)
         {
-            m_game.DestroyTrail(A_Data->getLocalId());
-        }
-        else if (A_Data->getUserDataType() == UserDataType::LIMIT) 
-        {
-            m_game.DestroyTrail(B_Data->getLocalId());
+            //m_game.DestroyTrail(A_Data->getLocalId());
         }
     }
 
@@ -63,6 +59,7 @@ void ContactListener::EndContact(b2Contact* contact)
         {
             m_game.SetDamageToRocket(5);
             std::cout << "Rocket lost 5 health" << std::endl;
+            
         }
     }
 }

@@ -3,10 +3,10 @@
     "",
     "\\B2DGame",
     "\\B2DGame\\data",
-    "\\B2DGame\\data\\sprites",
-    "\\B2DGame\\include",
-    "\\B2DGame\\src"
+    "\\B2DGame\\data\\font",
+    "\\B2DGame\\data\\music",
+    "\\B2DGame\\data\\sound"
   ],
-  "SelectedNode": "\\B2DGame\\src\\game.cpp",
+  "SelectedNode": "\\B2DGame\\data\\sound\\crash.wav",
   "PreviewInSolutionExplorer": false
 }

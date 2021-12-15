@@ -4,6 +4,7 @@
 #include "SFML/Graphics/RenderWindow.hpp"
 #include "SFML/Graphics/Texture.hpp"
 #include "SFML/Window//Event.hpp"
+#include "SFML/Audio.hpp"
 #include "box2d/b2_world.h"
 
 #include "character.h"
@@ -20,25 +21,51 @@ class Game {
 
 private:
 
+#pragma region Physical
+
 	// Physical
 	b2Vec2 m_gravity;
 	b2World m_world;
 
-	//Window
-	sf::RenderWindow m_window;
-
-	//Character
-	Character m_character;
-	
 	//Boundaries
 	std::vector<Boundary> m_boundaries;
 	std::vector<Star> m_stars;
 	TrailManager m_trailManager;
 	ContactListener m_contacts;
+	
+	//Character
+	Character m_character;
+
+#pragma endregion
+#pragma region Graphical
+
+	//Window
+	sf::RenderWindow m_window;
 
 	//Time Values
 	sf::Clock m_clock;
 	sf::Time m_deltaTime;
+	sf::Clock m_clock2;
+	sf::Time m_deltaTime2;
+
+	sf::Clock m_scoreClock;
+	sf::Time m_scoreTime;
+	float m_score = 0;
+
+	//Music
+	sf::Music m_music;
+	//Sound
+	sf::SoundBuffer m_bufferThruster;
+	sf::SoundBuffer m_bufferCrash;
+	sf::Sound m_sound1;
+	sf::Sound m_sound2;
+
+	//Text
+	sf::Font m_font;
+	sf::Text m_scoreText;
+	sf::Text m_lifeText;
+
+#pragma endregion
 
 	bool m_gameOver = false;
 

@@ -12,7 +12,28 @@ Game::Game() :
 	m_character(*this),
 	m_contacts(*this),
 	m_trailManager(m_world)
-{}
+{
+	//MUSIC
+	m_music.openFromFile("data/music/space.wav");
+	m_music.setVolume(25);
+	m_music.setLoop(true);
+	
+	//SOUND
+	m_bufferThruster.loadFromFile("data/sound/thruster.wav");
+	m_bufferCrash.loadFromFile("data/sound/crash.wav");
+	
+	//TEXT - Font
+	m_font.loadFromFile("data/font/RetroGaming.ttf");
+	//TEXT - Score
+	m_scoreText.setFont(m_font);
+	m_scoreText.setCharacterSize(80); // in pixels, not points!
+	m_scoreText.setFillColor(sf::Color::Red);
+	//TEXT - Life
+	m_lifeText.setFont(m_font);
+	m_lifeText.setCharacterSize(80);
+	m_lifeText.setFillColor(sf::Color::Red);
+	
+}
 
 #pragma endregion
 #pragma region GAME METHODS
@@ -86,14 +107,27 @@ void Game::Init()
 	m_character.move(sf::Vector2f(0.5f * m_window.getSize().x, 0.5f * m_window.getSize().y));
 
 #pragma endregion
+#pragma region UiElements
+
+	m_scoreText.setPosition(sf::Vector2f(m_window.getSize().x * 0.025f, 0));
+	m_lifeText.setPosition(sf::Vector2f(m_window.getSize().x * 0.7f, 0));
+
+#pragma endregion
 
 }
 void Game::Loop()
 {
+		//Music
+		m_music.play();
 
 	while (m_window.isOpen())
 	{
-
+		//Game Timer used for the Score
+		sf::Time elapsed = m_scoreClock.restart();
+		m_scoreTime += elapsed;
+		m_score = m_scoreTime.asSeconds();
+		
+		
 #pragma region Event processes
 		sf::Event event;
 
@@ -118,30 +152,35 @@ void Game::Loop()
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
 			{
 				//Add Thrust
-				m_character.Thruster(b2Vec2(0.0f, 100.0f));
-				//Set alpha to max
-				m_character.SetSpriteAlpha(m_character.m_secondSprite, m_character.m_thrusterAlphaValue = 255.0f);
+				m_character.Move(b2Vec2(0.0f, 100.0f));
 
+				//Set alpha to max
+				m_character.MaxThrusterAlphaValue();
+
+				//play sound
+				m_sound1.setBuffer(m_bufferThruster);
+				m_sound1.play();
+				
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 			{
 				//Move Left
-				m_character.MoveLeft(b2Vec2(-100.0f, 0.0f));
+				m_character.Move(b2Vec2(-100.0f, 0.0f));
 				
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 			{
 				//Move Right
-				m_character.MoveRight(b2Vec2(100.0f, 0.0f));
+				m_character.Move(b2Vec2(100.0f, 0.0f));
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
 			{
 				//Move Down
-				m_character.MoveRight(b2Vec2(0.0f, -20.0f));
+				m_character.Move(b2Vec2(0.0f, -20.0f));
 			}
-			
 		}
 
+#pragma endregion
 #pragma region Physical process
 		if(!m_gameOver)
 		{
@@ -173,16 +212,16 @@ void Game::Loop()
 				}
 			}
 
-			// Tick every 1.0sec
+			// Tick every 5.0sec
 			sf::Time elapsed = m_clock.restart();
 			m_deltaTime += elapsed;
 			
-			if (m_deltaTime.asSeconds() > 5.0f) 
+			if (m_deltaTime.asSeconds() > 0.5f) 
 			{
 
 				std::random_device rd; // obtain a random number from hardware
 				std::mt19937 generator(rd()); // seed the generator
-				std::uniform_int_distribution<> rndX(0, m_window.getSize().x/2); // define the range
+				std::uniform_int_distribution<> rndX(0, m_window.getSize().x); // define the range
 				std::uniform_int_distribution<> rndY(0, m_window.getSize().y); // define the range
 
 				sf::Vector2f rndPos((rndX(generator)), pixelsToMeters(0.0f));
@@ -207,13 +246,24 @@ void Game::Loop()
 #pragma endregion
 #pragma region Graphical process
 
-		//Lowers the Thruster alpha
-		if (m_character.m_thrusterAlphaValue >= 0.0f)
+		sf::Time elapsedTime = m_clock2.restart();
+		m_deltaTime2 += elapsedTime;
+
+		sf::Color fullColor = sf::Color(255, 255, 255, 255);
+		if (m_deltaTime2.asSeconds() > 0.25f) 
 		{
-			m_character.SetSpriteAlpha(m_character.m_secondSprite, m_character.m_thrusterAlphaValue -= m_character.m_thrusterAlphaValue / 10);
+			m_deltaTime2 = sf::Time::Zero;
+			if (m_character.GetMainSprite().getColor() == sf::Color::Red)
+			{
+				m_character.ResetColor();
+			}
 		}
+		
+		m_character.LowerThrusterAlphaValue();
 
 		// Clear all background
+#pragma region DRAW
+
 		m_window.clear();
 		// Render All elements
 		//Draw Boundaries
@@ -230,13 +280,22 @@ void Game::Loop()
 		m_window.draw(m_character);
 		//Draw Trails
 		m_window.draw(m_trailManager);
+		//Draw Text
+		m_scoreText.setString("Score: " + std::to_string((int)m_score));
+		m_window.draw(m_scoreText);
+		m_lifeText.setString("Life: " + std::to_string((int)m_character.GetHealth()));
+		m_window.draw(m_lifeText);
 		// Display all elements
 		m_window.display();
 
 #pragma endregion
+
+#pragma endregion
+
 	}
 }
 #pragma endregion
+
 #pragma region ContactMethods
 
 void Game::DestroyTrail(int trailId)
@@ -247,6 +306,9 @@ void Game::DestroyTrail(int trailId)
 void Game::SetDamageToRocket(float damage) 
 {
 	m_character.SetDamage(damage);
+	m_deltaTime2 = sf::Time::Zero;
+	m_sound2.setBuffer(m_bufferCrash);
+	m_sound2.play();
 }
 
 #pragma endregion
@@ -275,5 +337,4 @@ sf::Vector2f Game::metersToPixels(b2Vec2 meters)
 //pixelsMetersRation definition
 const float Game::pixelsMetersRatio = 100.0f;
 
-#pragma endregion
 #pragma endregion

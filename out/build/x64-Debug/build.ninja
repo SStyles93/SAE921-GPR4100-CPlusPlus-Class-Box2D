@@ -66,7 +66,7 @@ build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 #############################################
 # Utility command for DataTarget-B2DGame
 
-build B2DGame\DataTarget-B2DGame: phony B2DGame\CMakeFiles\DataTarget-B2DGame B2DGame\data\sprites\fire.png B2DGame\data\sprites\rocket.png B2DGame\data\sprites\star.png B2DGame\data\sprites\trail.png
+build B2DGame\DataTarget-B2DGame: phony B2DGame\CMakeFiles\DataTarget-B2DGame B2DGame\data\font\RetroGaming.ttf B2DGame\data\font\retrogaming.zip B2DGame\data\music\space.mp3 B2DGame\data\music\space.wav B2DGame\data\sound\crash.wav B2DGame\data\sound\thruster.wav B2DGame\data\sprites\fire.png B2DGame\data\sprites\rocket.png B2DGame\data\sprites\star.png B2DGame\data\sprites\trail.png
 
 # =============================================================================
 # Object build statements for EXECUTABLE target B2DGame
@@ -232,7 +232,61 @@ build B2DGame\rebuild_cache: phony B2DGame\CMakeFiles\rebuild_cache.util
 #############################################
 # Phony custom command for B2DGame\CMakeFiles\DataTarget-B2DGame
 
-build B2DGame\CMakeFiles\DataTarget-B2DGame: phony B2DGame\data\sprites\fire.png B2DGame\data\sprites\rocket.png B2DGame\data\sprites\star.png B2DGame\data\sprites\trail.png ..\..\..\B2DGame\data\sprites\fire.png ..\..\..\B2DGame\data\sprites\rocket.png ..\..\..\B2DGame\data\sprites\star.png ..\..\..\B2DGame\data\sprites\trail.png
+build B2DGame\CMakeFiles\DataTarget-B2DGame: phony B2DGame\data\font\RetroGaming.ttf B2DGame\data\font\retrogaming.zip B2DGame\data\music\space.mp3 B2DGame\data\music\space.wav B2DGame\data\sound\crash.wav B2DGame\data\sound\thruster.wav B2DGame\data\sprites\fire.png B2DGame\data\sprites\rocket.png B2DGame\data\sprites\star.png B2DGame\data\sprites\trail.png ..\..\..\B2DGame\data\font\RetroGaming.ttf ..\..\..\B2DGame\data\font\retrogaming.zip ..\..\..\B2DGame\data\music\space.mp3 ..\..\..\B2DGame\data\music\space.wav ..\..\..\B2DGame\data\sound\crash.wav ..\..\..\B2DGame\data\sound\thruster.wav ..\..\..\B2DGame\data\sprites\fire.png ..\..\..\B2DGame\data\sprites\rocket.png ..\..\..\B2DGame\data\sprites\star.png ..\..\..\B2DGame\data\sprites\trail.png
+
+
+#############################################
+# Custom command for B2DGame\data\font\RetroGaming.ttf
+
+build B2DGame\data\font\RetroGaming.ttf: CUSTOM_COMMAND ..\..\..\B2DGame\data\font\RetroGaming.ttf
+  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/font/RetroGaming.ttf D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/font/RetroGaming.ttf"
+  DESC = Generating data/font/RetroGaming.ttf
+  restat = 1
+
+
+#############################################
+# Custom command for B2DGame\data\font\retrogaming.zip
+
+build B2DGame\data\font\retrogaming.zip: CUSTOM_COMMAND ..\..\..\B2DGame\data\font\retrogaming.zip
+  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/font/retrogaming.zip D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/font/retrogaming.zip"
+  DESC = Generating data/font/retrogaming.zip
+  restat = 1
+
+
+#############################################
+# Custom command for B2DGame\data\music\space.mp3
+
+build B2DGame\data\music\space.mp3: CUSTOM_COMMAND ..\..\..\B2DGame\data\music\space.mp3
+  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/music/space.mp3 D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/music/space.mp3"
+  DESC = Generating data/music/space.mp3
+  restat = 1
+
+
+#############################################
+# Custom command for B2DGame\data\music\space.wav
+
+build B2DGame\data\music\space.wav: CUSTOM_COMMAND ..\..\..\B2DGame\data\music\space.wav
+  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/music/space.wav D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/music/space.wav"
+  DESC = Generating data/music/space.wav
+  restat = 1
+
+
+#############################################
+# Custom command for B2DGame\data\sound\crash.wav
+
+build B2DGame\data\sound\crash.wav: CUSTOM_COMMAND ..\..\..\B2DGame\data\sound\crash.wav
+  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/sound/crash.wav D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/sound/crash.wav"
+  DESC = Generating data/sound/crash.wav
+  restat = 1
+
+
+#############################################
+# Custom command for B2DGame\data\sound\thruster.wav
+
+build B2DGame\data\sound\thruster.wav: CUSTOM_COMMAND ..\..\..\B2DGame\data\sound\thruster.wav
+  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/sound/thruster.wav D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/sound/thruster.wav"
+  DESC = Generating data/sound/thruster.wav
+  restat = 1
 
 
 #############################################

@@ -13,12 +13,14 @@ protected:
 #pragma region SMFL
 
 	//Ship
-	sf::Sprite m_mainSprite;
-	std::string m_mainSpriteAdress;
 	sf::Texture m_mainTexture;
+	std::string m_mainSpriteAdress;
+	sf::Sprite m_mainSprite;
 	//Thruster
-	std::string m_secondSpriteAdress;
 	sf::Texture m_secondTexture;
+	std::string m_secondSpriteAdress;
+	sf::Sprite m_secondSprite;
+	float m_thrusterAlphaValue = 0;
 
 #pragma endregion
 #pragma region BOX2D
@@ -37,26 +39,38 @@ protected:
 	
 public:
 
-	//Thruster
-	sf::Sprite m_secondSprite;
-	float m_thrusterAlphaValue = 0;
+	
 
 #pragma region CONSTRUCTOR
 	
 	explicit Character(Game& game);
 
 #pragma endregion
+#pragma region GETTER/SETTER
+
+	sf::Sprite GetMainSprite() {return m_mainSprite; };
+	sf::Sprite SetMainSprite(sf::Sprite sprite) { m_mainSprite = sprite; };
+	sf::Sprite GetSecondSprite() { return m_secondSprite; };
+	sf::Sprite SetSecondSprite(sf::Sprite sprite) { m_secondSprite = sprite; };
+	float GetThrusterAlphaValue() { return m_thrusterAlphaValue; };
+
+#pragma endregion
+
 #pragma region GAME METHODS
 	
 	void Init(sf::Vector2u winsize);
 	void Update();
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
+	void Move(b2Vec2 b2Vec2);
+
 	void SetSpriteAlpha(sf::Sprite& sprite, float alphaValue);
-
-
-	void Thruster(b2Vec2 b2Vec2);
-	void MoveLeft(b2Vec2 force);
-	void MoveRight(b2Vec2 force);
+	//void SetSpriteColorR(sf::Sprite& sprite, float alphaValue);
+	//void SetSpriteColorG(sf::Sprite& sprite, float alphaValue);
+	//void SetSpriteColorB(sf::Sprite& sprite, float alphaValue);
+	void MaxThrusterAlphaValue();
+	void LowerThrusterAlphaValue();
+	void ResetColor();
 
 	void SetDamage(float damage);
 	float GetHealth();

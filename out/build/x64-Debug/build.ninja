@@ -39,7 +39,7 @@ include CMakeFiles\rules.ninja
 # Utility command for edit_cache
 
 build CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -50,7 +50,7 @@ build edit_cache: phony CMakeFiles\edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SD:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D -BD:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug"
+  COMMAND = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D -BC:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -59,7 +59,7 @@ build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/CMakeLists.txt
+# C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/CMakeLists.txt
 # =============================================================================
 
 
@@ -77,55 +77,10 @@ build B2DGame\DataTarget-B2DGame: phony B2DGame\CMakeFiles\DataTarget-B2DGame B2
 
 build cmake_object_order_depends_target_B2DGame: phony || B2DGame\DataTarget-B2DGame
 
-build B2DGame\CMakeFiles\B2DGame.dir\src\ContactListener.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\ContactListener.cpp || cmake_object_order_depends_target_B2DGame
-  DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
-  INCLUDES = -I..\..\..\B2DGame\include -ID:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\include
-  OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
-  OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
-  TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
-  TARGET_PDB = B2DGame\B2DGame.pdb
-
-build B2DGame\CMakeFiles\B2DGame.dir\src\SFML_Utilities.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\SFML_Utilities.cpp || cmake_object_order_depends_target_B2DGame
-  DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
-  INCLUDES = -I..\..\..\B2DGame\include -ID:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\include
-  OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
-  OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
-  TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
-  TARGET_PDB = B2DGame\B2DGame.pdb
-
-build B2DGame\CMakeFiles\B2DGame.dir\src\TextureManager.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\TextureManager.cpp || cmake_object_order_depends_target_B2DGame
-  DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
-  INCLUDES = -I..\..\..\B2DGame\include -ID:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\include
-  OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
-  OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
-  TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
-  TARGET_PDB = B2DGame\B2DGame.pdb
-
-build B2DGame\CMakeFiles\B2DGame.dir\src\TrailManager.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\TrailManager.cpp || cmake_object_order_depends_target_B2DGame
-  DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
-  INCLUDES = -I..\..\..\B2DGame\include -ID:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\include
-  OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
-  OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
-  TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
-  TARGET_PDB = B2DGame\B2DGame.pdb
-
-build B2DGame\CMakeFiles\B2DGame.dir\src\UserData.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\UserData.cpp || cmake_object_order_depends_target_B2DGame
-  DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
-  INCLUDES = -I..\..\..\B2DGame\include -ID:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\include
-  OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
-  OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
-  TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
-  TARGET_PDB = B2DGame\B2DGame.pdb
-
 build B2DGame\CMakeFiles\B2DGame.dir\src\boundary.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\boundary.cpp || cmake_object_order_depends_target_B2DGame
   DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
-  INCLUDES = -I..\..\..\B2DGame\include -ID:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\include
+  INCLUDES = -I..\..\..\B2DGame\include -IC:\dev\0_Installs\vcpkg\installed\x64-windows\include
   OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
   OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
   TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
@@ -134,7 +89,16 @@ build B2DGame\CMakeFiles\B2DGame.dir\src\boundary.cpp.obj: CXX_COMPILER__B2DGame
 build B2DGame\CMakeFiles\B2DGame.dir\src\character.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\character.cpp || cmake_object_order_depends_target_B2DGame
   DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
-  INCLUDES = -I..\..\..\B2DGame\include -ID:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\include
+  INCLUDES = -I..\..\..\B2DGame\include -IC:\dev\0_Installs\vcpkg\installed\x64-windows\include
+  OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
+  OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
+  TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
+  TARGET_PDB = B2DGame\B2DGame.pdb
+
+build B2DGame\CMakeFiles\B2DGame.dir\src\contactListener.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\contactListener.cpp || cmake_object_order_depends_target_B2DGame
+  DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
+  INCLUDES = -I..\..\..\B2DGame\include -IC:\dev\0_Installs\vcpkg\installed\x64-windows\include
   OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
   OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
   TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
@@ -143,7 +107,7 @@ build B2DGame\CMakeFiles\B2DGame.dir\src\character.cpp.obj: CXX_COMPILER__B2DGam
 build B2DGame\CMakeFiles\B2DGame.dir\src\game.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\game.cpp || cmake_object_order_depends_target_B2DGame
   DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
-  INCLUDES = -I..\..\..\B2DGame\include -ID:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\include
+  INCLUDES = -I..\..\..\B2DGame\include -IC:\dev\0_Installs\vcpkg\installed\x64-windows\include
   OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
   OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
   TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
@@ -152,7 +116,7 @@ build B2DGame\CMakeFiles\B2DGame.dir\src\game.cpp.obj: CXX_COMPILER__B2DGame_Deb
 build B2DGame\CMakeFiles\B2DGame.dir\src\main.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\main.cpp || cmake_object_order_depends_target_B2DGame
   DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
-  INCLUDES = -I..\..\..\B2DGame\include -ID:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\include
+  INCLUDES = -I..\..\..\B2DGame\include -IC:\dev\0_Installs\vcpkg\installed\x64-windows\include
   OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
   OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
   TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
@@ -161,7 +125,16 @@ build B2DGame\CMakeFiles\B2DGame.dir\src\main.cpp.obj: CXX_COMPILER__B2DGame_Deb
 build B2DGame\CMakeFiles\B2DGame.dir\src\object.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\object.cpp || cmake_object_order_depends_target_B2DGame
   DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
-  INCLUDES = -I..\..\..\B2DGame\include -ID:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\include
+  INCLUDES = -I..\..\..\B2DGame\include -IC:\dev\0_Installs\vcpkg\installed\x64-windows\include
+  OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
+  OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
+  TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
+  TARGET_PDB = B2DGame\B2DGame.pdb
+
+build B2DGame\CMakeFiles\B2DGame.dir\src\sfml_Utilities.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\sfml_Utilities.cpp || cmake_object_order_depends_target_B2DGame
+  DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
+  INCLUDES = -I..\..\..\B2DGame\include -IC:\dev\0_Installs\vcpkg\installed\x64-windows\include
   OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
   OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
   TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
@@ -170,7 +143,16 @@ build B2DGame\CMakeFiles\B2DGame.dir\src\object.cpp.obj: CXX_COMPILER__B2DGame_D
 build B2DGame\CMakeFiles\B2DGame.dir\src\star.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\star.cpp || cmake_object_order_depends_target_B2DGame
   DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
-  INCLUDES = -I..\..\..\B2DGame\include -ID:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\include
+  INCLUDES = -I..\..\..\B2DGame\include -IC:\dev\0_Installs\vcpkg\installed\x64-windows\include
+  OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
+  OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
+  TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
+  TARGET_PDB = B2DGame\B2DGame.pdb
+
+build B2DGame\CMakeFiles\B2DGame.dir\src\textureManager.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\textureManager.cpp || cmake_object_order_depends_target_B2DGame
+  DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
+  INCLUDES = -I..\..\..\B2DGame\include -IC:\dev\0_Installs\vcpkg\installed\x64-windows\include
   OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
   OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
   TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
@@ -179,7 +161,25 @@ build B2DGame\CMakeFiles\B2DGame.dir\src\star.cpp.obj: CXX_COMPILER__B2DGame_Deb
 build B2DGame\CMakeFiles\B2DGame.dir\src\trail.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\trail.cpp || cmake_object_order_depends_target_B2DGame
   DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
-  INCLUDES = -I..\..\..\B2DGame\include -ID:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\include
+  INCLUDES = -I..\..\..\B2DGame\include -IC:\dev\0_Installs\vcpkg\installed\x64-windows\include
+  OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
+  OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
+  TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
+  TARGET_PDB = B2DGame\B2DGame.pdb
+
+build B2DGame\CMakeFiles\B2DGame.dir\src\trailManager.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\trailManager.cpp || cmake_object_order_depends_target_B2DGame
+  DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
+  INCLUDES = -I..\..\..\B2DGame\include -IC:\dev\0_Installs\vcpkg\installed\x64-windows\include
+  OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
+  OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
+  TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
+  TARGET_PDB = B2DGame\B2DGame.pdb
+
+build B2DGame\CMakeFiles\B2DGame.dir\src\userData.cpp.obj: CXX_COMPILER__B2DGame_Debug ..\..\..\B2DGame\src\userData.cpp || cmake_object_order_depends_target_B2DGame
+  DEFINES = -DFLAC__NO_DLL -DOV_EXCLUDE_STATIC_CALLBACKS
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++latest
+  INCLUDES = -I..\..\..\B2DGame\include -IC:\dev\0_Installs\vcpkg\installed\x64-windows\include
   OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
   OBJECT_FILE_DIR = B2DGame\CMakeFiles\B2DGame.dir\src
   TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
@@ -193,12 +193,12 @@ build B2DGame\CMakeFiles\B2DGame.dir\src\trail.cpp.obj: CXX_COMPILER__B2DGame_De
 #############################################
 # Link the executable B2DGame\B2DGame.exe
 
-build B2DGame\B2DGame.exe: CXX_EXECUTABLE_LINKER__B2DGame_Debug B2DGame\CMakeFiles\B2DGame.dir\src\ContactListener.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\SFML_Utilities.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\TextureManager.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\TrailManager.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\UserData.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\boundary.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\character.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\game.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\main.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\object.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\star.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\trail.cpp.obj | D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-graphics-d.lib D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-audio-d.lib D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-window-d.lib D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-system-d.lib D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\debug\lib\manual-link\sfml-main-d.lib D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\debug\lib\box2d.lib || B2DGame\DataTarget-B2DGame
+build B2DGame\B2DGame.exe: CXX_EXECUTABLE_LINKER__B2DGame_Debug B2DGame\CMakeFiles\B2DGame.dir\src\boundary.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\character.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\contactListener.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\game.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\main.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\object.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\sfml_Utilities.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\star.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\textureManager.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\trail.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\trailManager.cpp.obj B2DGame\CMakeFiles\B2DGame.dir\src\userData.cpp.obj | C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-graphics-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-audio-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-window-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-system-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\manual-link\sfml-main-d.lib C$:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\box2d.lib || B2DGame\DataTarget-B2DGame
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
-  LINK_LIBRARIES = D:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-graphics-d.lib  D:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-audio-d.lib  D:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-window-d.lib  D:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-system-d.lib  D:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\debug\lib\manual-link\sfml-main-d.lib  D:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\debug\lib\box2d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  LINK_LIBRARIES = C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-graphics-d.lib  C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-audio-d.lib  C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-window-d.lib  C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\sfml-system-d.lib  C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\manual-link\sfml-main-d.lib  C:\dev\0_Installs\vcpkg\installed\x64-windows\debug\lib\box2d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
   OBJECT_DIR = B2DGame\CMakeFiles\B2DGame.dir
-  POST_BUILD = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file D:/Game.Prog/00_Installs/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/B2DGame.exe -installedDir D:/Game.Prog/00_Installs/vcpkg/installed/x64-windows/debug/bin -OutVariable out"
+  POST_BUILD = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug\B2DGame && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/dev/0_Installs/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/out/build/x64-Debug/B2DGame/B2DGame.exe -installedDir C:/dev/0_Installs/vcpkg/installed/x64-windows/debug/bin -OutVariable out"
   PRE_LINK = cd .
   TARGET_COMPILE_PDB = B2DGame\CMakeFiles\B2DGame.dir\
   TARGET_FILE = B2DGame\B2DGame.exe
@@ -210,7 +210,7 @@ build B2DGame\B2DGame.exe: CXX_EXECUTABLE_LINKER__B2DGame_Debug B2DGame\CMakeFil
 # Utility command for edit_cache
 
 build B2DGame\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -221,7 +221,7 @@ build B2DGame\edit_cache: phony B2DGame\CMakeFiles\edit_cache.util
 # Utility command for rebuild_cache
 
 build B2DGame\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SD:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D -BD:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug"
+  COMMAND = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --regenerate-during-build -SC:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D -BC:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -239,7 +239,7 @@ build B2DGame\CMakeFiles\DataTarget-B2DGame: phony B2DGame\data\font\RetroGaming
 # Custom command for B2DGame\data\font\RetroGaming.ttf
 
 build B2DGame\data\font\RetroGaming.ttf: CUSTOM_COMMAND ..\..\..\B2DGame\data\font\RetroGaming.ttf
-  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/font/RetroGaming.ttf D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/font/RetroGaming.ttf"
+  COMMAND = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/B2DGame/data/font/RetroGaming.ttf C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/out/build/x64-Debug/B2DGame/data/font/RetroGaming.ttf"
   DESC = Generating data/font/RetroGaming.ttf
   restat = 1
 
@@ -248,7 +248,7 @@ build B2DGame\data\font\RetroGaming.ttf: CUSTOM_COMMAND ..\..\..\B2DGame\data\fo
 # Custom command for B2DGame\data\font\retrogaming.zip
 
 build B2DGame\data\font\retrogaming.zip: CUSTOM_COMMAND ..\..\..\B2DGame\data\font\retrogaming.zip
-  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/font/retrogaming.zip D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/font/retrogaming.zip"
+  COMMAND = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/B2DGame/data/font/retrogaming.zip C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/out/build/x64-Debug/B2DGame/data/font/retrogaming.zip"
   DESC = Generating data/font/retrogaming.zip
   restat = 1
 
@@ -257,7 +257,7 @@ build B2DGame\data\font\retrogaming.zip: CUSTOM_COMMAND ..\..\..\B2DGame\data\fo
 # Custom command for B2DGame\data\music\space.mp3
 
 build B2DGame\data\music\space.mp3: CUSTOM_COMMAND ..\..\..\B2DGame\data\music\space.mp3
-  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/music/space.mp3 D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/music/space.mp3"
+  COMMAND = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/B2DGame/data/music/space.mp3 C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/out/build/x64-Debug/B2DGame/data/music/space.mp3"
   DESC = Generating data/music/space.mp3
   restat = 1
 
@@ -266,7 +266,7 @@ build B2DGame\data\music\space.mp3: CUSTOM_COMMAND ..\..\..\B2DGame\data\music\s
 # Custom command for B2DGame\data\music\space.wav
 
 build B2DGame\data\music\space.wav: CUSTOM_COMMAND ..\..\..\B2DGame\data\music\space.wav
-  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/music/space.wav D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/music/space.wav"
+  COMMAND = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/B2DGame/data/music/space.wav C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/out/build/x64-Debug/B2DGame/data/music/space.wav"
   DESC = Generating data/music/space.wav
   restat = 1
 
@@ -275,7 +275,7 @@ build B2DGame\data\music\space.wav: CUSTOM_COMMAND ..\..\..\B2DGame\data\music\s
 # Custom command for B2DGame\data\sound\crash.wav
 
 build B2DGame\data\sound\crash.wav: CUSTOM_COMMAND ..\..\..\B2DGame\data\sound\crash.wav
-  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/sound/crash.wav D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/sound/crash.wav"
+  COMMAND = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/B2DGame/data/sound/crash.wav C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/out/build/x64-Debug/B2DGame/data/sound/crash.wav"
   DESC = Generating data/sound/crash.wav
   restat = 1
 
@@ -284,7 +284,7 @@ build B2DGame\data\sound\crash.wav: CUSTOM_COMMAND ..\..\..\B2DGame\data\sound\c
 # Custom command for B2DGame\data\sound\thruster.wav
 
 build B2DGame\data\sound\thruster.wav: CUSTOM_COMMAND ..\..\..\B2DGame\data\sound\thruster.wav
-  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/sound/thruster.wav D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/sound/thruster.wav"
+  COMMAND = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/B2DGame/data/sound/thruster.wav C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/out/build/x64-Debug/B2DGame/data/sound/thruster.wav"
   DESC = Generating data/sound/thruster.wav
   restat = 1
 
@@ -293,7 +293,7 @@ build B2DGame\data\sound\thruster.wav: CUSTOM_COMMAND ..\..\..\B2DGame\data\soun
 # Custom command for B2DGame\data\sprites\fire.png
 
 build B2DGame\data\sprites\fire.png: CUSTOM_COMMAND ..\..\..\B2DGame\data\sprites\fire.png
-  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/sprites/fire.png D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/sprites/fire.png"
+  COMMAND = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/B2DGame/data/sprites/fire.png C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/out/build/x64-Debug/B2DGame/data/sprites/fire.png"
   DESC = Generating data/sprites/fire.png
   restat = 1
 
@@ -302,7 +302,7 @@ build B2DGame\data\sprites\fire.png: CUSTOM_COMMAND ..\..\..\B2DGame\data\sprite
 # Custom command for B2DGame\data\sprites\rocket.png
 
 build B2DGame\data\sprites\rocket.png: CUSTOM_COMMAND ..\..\..\B2DGame\data\sprites\rocket.png
-  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/sprites/rocket.png D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/sprites/rocket.png"
+  COMMAND = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/B2DGame/data/sprites/rocket.png C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/out/build/x64-Debug/B2DGame/data/sprites/rocket.png"
   DESC = Generating data/sprites/rocket.png
   restat = 1
 
@@ -311,7 +311,7 @@ build B2DGame\data\sprites\rocket.png: CUSTOM_COMMAND ..\..\..\B2DGame\data\spri
 # Custom command for B2DGame\data\sprites\star.png
 
 build B2DGame\data\sprites\star.png: CUSTOM_COMMAND ..\..\..\B2DGame\data\sprites\star.png
-  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/sprites/star.png D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/sprites/star.png"
+  COMMAND = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/B2DGame/data/sprites/star.png C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/out/build/x64-Debug/B2DGame/data/sprites/star.png"
   DESC = Generating data/sprites/star.png
   restat = 1
 
@@ -320,7 +320,7 @@ build B2DGame\data\sprites\star.png: CUSTOM_COMMAND ..\..\..\B2DGame\data\sprite
 # Custom command for B2DGame\data\sprites\trail.png
 
 build B2DGame\data\sprites\trail.png: CUSTOM_COMMAND ..\..\..\B2DGame\data\sprites\trail.png
-  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/B2DGame/data/sprites/trail.png D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame/data/sprites/trail.png"
+  COMMAND = cmd.exe /C "cd /D C:\SAE\921\GPR\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/B2DGame/data/sprites/trail.png C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/out/build/x64-Debug/B2DGame/data/sprites/trail.png"
   DESC = Generating data/sprites/trail.png
   restat = 1
 
@@ -339,14 +339,14 @@ build DataTarget-B2DGame: phony B2DGame\DataTarget-B2DGame
 # =============================================================================
 
 #############################################
-# Folder: D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug
+# Folder: C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/out/build/x64-Debug
 
 build all: phony B2DGame\all
 
 # =============================================================================
 
 #############################################
-# Folder: D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-Box2D/out/build/x64-Debug/B2DGame
+# Folder: C:/SAE/921/GPR/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/out/build/x64-Debug/B2DGame
 
 build B2DGame\all: phony B2DGame\B2DGame.exe
 
@@ -357,14 +357,14 @@ build B2DGame\all: phony B2DGame\B2DGame.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ..\..\..\B2DGame\CMakeLists.txt ..\..\..\CMakeLists.txt C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeCXXInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeDependentOption.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeGenericSystem.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeRCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\FindOpenGL.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\FindPackageMessage.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\Windows.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.20.21032501-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.20.21032501-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.20.21032501-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.20.21032501-MSVC_2\CMakeSystem.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\box2d\box2dConfig-debug.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\box2d\box2dConfig-release.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\box2d\box2dConfig.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\box2d\box2dConfigVersion.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLConfig.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLConfigDependencies.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLConfigVersion.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLSharedTargets-debug.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLSharedTargets-release.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLSharedTargets.cmake D$:\Game.Prog\00_Installs\vcpkg\scripts\buildsystems\vcpkg.cmake
+build build.ninja: RERUN_CMAKE | ..\..\..\B2DGame\CMakeLists.txt ..\..\..\CMakeLists.txt C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeCXXInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeDependentOption.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeGenericSystem.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeRCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\FindOpenGL.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\FindPackageMessage.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\Windows.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\WindowsPaths.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\box2d\box2dConfig-debug.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\box2d\box2dConfig-release.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\box2d\box2dConfig.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\box2d\box2dConfigVersion.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLConfig.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLConfigDependencies.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLConfigVersion.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLSharedTargets-debug.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLSharedTargets-release.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLSharedTargets.cmake C$:\dev\0_Installs\vcpkg\scripts\buildsystems\vcpkg.cmake CMakeCache.txt CMakeFiles\3.20.21032501-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.20.21032501-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.20.21032501-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.20.21032501-MSVC_2\CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ..\..\..\B2DGame\CMakeLists.txt ..\..\..\CMakeLists.txt C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeCXXInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeDependentOption.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeGenericSystem.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeRCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\FindOpenGL.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\FindPackageMessage.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\Windows.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.20.21032501-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.20.21032501-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.20.21032501-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.20.21032501-MSVC_2\CMakeSystem.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\box2d\box2dConfig-debug.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\box2d\box2dConfig-release.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\box2d\box2dConfig.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\box2d\box2dConfigVersion.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLConfig.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLConfigDependencies.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLConfigVersion.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLSharedTargets-debug.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLSharedTargets-release.cmake D$:\Game.Prog\00_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLSharedTargets.cmake D$:\Game.Prog\00_Installs\vcpkg\scripts\buildsystems\vcpkg.cmake: phony
+build ..\..\..\B2DGame\CMakeLists.txt ..\..\..\CMakeLists.txt C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeCXXInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeDependentOption.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeGenericSystem.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeRCInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\FindOpenGL.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\FindPackageMessage.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\Windows.cmake C$:\Program$ Files$ (x86)\Microsoft$ Visual$ Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.20\Modules\Platform\WindowsPaths.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\box2d\box2dConfig-debug.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\box2d\box2dConfig-release.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\box2d\box2dConfig.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\box2d\box2dConfigVersion.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLConfig.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLConfigDependencies.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLConfigVersion.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLSharedTargets-debug.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLSharedTargets-release.cmake C$:\dev\0_Installs\vcpkg\installed\x64-windows\share\sfml\SFMLSharedTargets.cmake C$:\dev\0_Installs\vcpkg\scripts\buildsystems\vcpkg.cmake CMakeCache.txt CMakeFiles\3.20.21032501-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.20.21032501-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.20.21032501-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.20.21032501-MSVC_2\CMakeSystem.cmake: phony
 
 
 #############################################

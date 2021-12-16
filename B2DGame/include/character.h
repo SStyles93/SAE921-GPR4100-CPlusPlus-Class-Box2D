@@ -55,7 +55,6 @@ public:
 	float GetThrusterAlphaValue() { return m_thrusterAlphaValue; };
 
 #pragma endregion
-
 #pragma region GAME METHODS
 	
 	void Init(sf::Vector2u winsize);

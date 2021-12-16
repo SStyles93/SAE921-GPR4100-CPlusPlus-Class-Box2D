@@ -1,9 +1,9 @@
-#include "ContactListener.h"
+#include "contactListener.h"
 
 #include <iostream>
 
 #include "game.h"
-#include "UserData.h"
+#include "userData.h"
 
 
 ContactListener::ContactListener(Game& game) : m_game(game)

@@ -7,6 +7,25 @@ class Game;
 
 class Star : public sf::Drawable, public sf::Transformable
 {
+public:
+
+#pragma region GETTER/SETTER
+
+	sf::Sprite& GetSprite() { return m_sprite; };
+
+#pragma endregion
+#pragma region CONSTRUCTOR
+
+	Star(Game& game, sf::Vector2f pos, sf::Vector2f scale, float angle);
+
+#pragma endregion
+#pragma region GAME METHODS
+
+	void Update();
+	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
+#pragma endregion
+
 protected:
 	//Root
 	Game& m_game;
@@ -22,25 +41,6 @@ protected:
 
 	//B2D
 	b2Body* m_body = nullptr;
-
-#pragma endregion
-
-public:
-
-#pragma region GETTER/SETTER
-
-	sf::Sprite& GetSprite() { return m_sprite; };
-
-#pragma endregion
-#pragma region CONSTRUCTOR
-
-	explicit Star(Game& game, sf::Vector2f pos, sf::Vector2f scale, float angle);
-
-#pragma endregion
-#pragma region GAME METHODS
-
-	void Update();
-	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 #pragma endregion
 

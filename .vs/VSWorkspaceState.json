@@ -3,10 +3,9 @@
     "",
     "\\B2DGame",
     "\\B2DGame\\data",
-    "\\B2DGame\\data\\font",
-    "\\B2DGame\\data\\music",
-    "\\B2DGame\\data\\sound"
+    "\\B2DGame\\include",
+    "\\B2DGame\\src"
   ],
-  "SelectedNode": "\\B2DGame\\data\\sound\\crash.wav",
+  "SelectedNode": "\\B2DGame\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }

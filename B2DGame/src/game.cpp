@@ -2,8 +2,6 @@
 
 #include "game.h"
 
-#include "iostream"
-
 #pragma region CONSTRUCTOR
 
 Game::Game() :
@@ -41,10 +39,10 @@ void Game::Init()
 {
 	TextureManager* texture_manager = TextureManager::Instance();
 
-	std::random_device rd; // obtain a random number from hardware
-	std::mt19937 generator(rd()); // seed the generator
-	std::uniform_real_distribution<> rndPos(-1.0f, 1.0f); // define the range
-	std::uniform_real_distribution<> rndAngle(-1.0f, 1.0f); // define the range
+	std::random_device rd;
+	std::mt19937 generator(rd());
+	std::uniform_real_distribution<> rndPos(-1.0f, 1.0f);
+	std::uniform_real_distribution<> rndAngle(-1.0f, 1.0f); 
 
 #pragma region Window
 
@@ -227,7 +225,7 @@ void Game::Loop()
 				sf::Vector2f rndPos((rndX(generator)), pixelsToMeters(0.0f));
 				//test pos
 				sf::Vector2f testPos(10, 0.0f);
-				std::cout << rndPos.x << "\n";
+
 				// Pop Trail
 				m_trailManager.AddTrail(rndPos);
 

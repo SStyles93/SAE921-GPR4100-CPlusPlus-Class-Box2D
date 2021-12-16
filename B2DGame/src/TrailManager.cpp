@@ -1,4 +1,4 @@
-#include "TrailManager.h"
+#include "trailManager.h"
 
 #include "SFML/Graphics/Drawable.hpp"
 #include "iostream"

@@ -1,4 +1,4 @@
-#include "SFML_Utilities.h"
+#include "sfml_Utilities.h"
 #include <box2d/b2_math.h>
 
 #pragma region MATHS

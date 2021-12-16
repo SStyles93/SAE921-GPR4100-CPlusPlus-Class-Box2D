@@ -79,6 +79,8 @@ void Character::draw(sf::RenderTarget& target, sf::RenderStates states) const
 #pragma endregion
 #pragma region OBJECT METHODS
 
+#pragma region Physical
+
 //Applies a given force to the m_body
 void Character::Move(b2Vec2 b2Vec)
 {
@@ -94,6 +96,8 @@ void Character::Move(b2Vec2 b2Vec)
 	}
 }
 
+#pragma endregion
+#pragma region Graphical
 
 //Sets the Alpha Value of a references sprite
 void Character::SetSpriteAlpha(sf::Sprite& sprite, float alphaValue) 
@@ -119,6 +123,9 @@ void Character::ResetColor()
 	m_mainSprite.setColor(sf::Color(255, 255, 255, 255));
 }
 
+#pragma endregion
+#pragma region Stats
+
 //Returns the characters health
 float Character::GetHealth()
 {
@@ -131,5 +138,7 @@ void Character::SetDamage(float damage)
 	m_mainSprite.setColor(sf::Color::Red);
 	
 }
+
+#pragma endregion
 
 #pragma endregion

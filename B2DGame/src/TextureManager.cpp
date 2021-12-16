@@ -1,4 +1,4 @@
-#include "TextureManager.h"
+#include "textureManager.h"
 
 TextureManager* TextureManager::m_textureManager = nullptr;
 

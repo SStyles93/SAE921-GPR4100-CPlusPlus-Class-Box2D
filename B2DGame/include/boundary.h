@@ -23,13 +23,14 @@ private:
 
 public:
 
+	b2Body* getBody() { return m_body; };
+
 	explicit Boundary(Game& game, sf::Vector2f pos, sf::Vector2f size, bool flag);
 
 	void Init(sf::Vector2f, sf::Vector2f);
 	void Update();
-
-	b2Body* getBody() { return m_body; };
-
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
+
 
 };

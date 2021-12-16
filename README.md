@@ -6,3 +6,9 @@ This project is a trial at **C++(SFML/Box2D)** and the merge of all of them into
 
 >It was build in the **SAE-Institute-Geneva** Gameprogamming-Class921.
 *************
+**TODO** :
+- Refactor Classes
+- Graphical improvement
+- Sound Improvement
+- Game mechanics
+- Game difficulty

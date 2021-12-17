@@ -4,8 +4,10 @@
     "\\B2DGame",
     "\\B2DGame\\data",
     "\\B2DGame\\include",
-    "\\B2DGame\\src"
+    "\\B2DGame\\include\\Managers",
+    "\\B2DGame\\src",
+    "\\B2DGame\\src\\Managers"
   ],
-  "SelectedNode": "\\B2DGame\\CMakeLists.txt",
+  "SelectedNode": "\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }

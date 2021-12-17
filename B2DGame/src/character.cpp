@@ -9,8 +9,9 @@
 
 Character::Character(Game& game) : m_game(game)
 {
-	m_mainSpriteAdress = "data/sprites/rocket.png";
-	m_secondSpriteAdress = "data/sprites/fire.png";
+	m_mainSpriteAdress = "data/sprites/capsule.png";
+	m_secondSpriteAdress = "data/sprites/capsuleSpeed.png"; 
+	m_thirdSpriteAdress = "data/sprites/capsuleTrail.png";
 }
 
 #pragma endregion
@@ -28,8 +29,14 @@ void Character::Init(sf::Vector2u winsize)
 	m_secondTexture.loadFromFile(m_secondSpriteAdress);
 	m_secondSprite.setTexture(m_secondTexture);
 	m_secondSprite.setOrigin(sf::Vector2f(m_mainTexture.getSize().y * 0.5f, m_mainTexture.getSize().x * 0.5f));
-	m_secondSprite.setPosition(15, 125);
+	m_secondSprite.setPosition(0, 0);
 	SetSpriteAlpha(m_secondSprite, 0);
+
+	m_thirdTexture.loadFromFile(m_thirdSpriteAdress);
+	m_thirdSprite.setTexture(m_thirdTexture);
+	m_thirdSprite.setOrigin(sf::Vector2f(m_mainTexture.getSize().y * 0.5f, m_mainTexture.getSize().x * 0.5f));
+	m_thirdSprite.setPosition(0, 125);
+	SetSpriteAlpha(m_thirdSprite, 0);
 
 #pragma endregion
 #pragma region BOX2D
@@ -48,8 +55,10 @@ void Character::Init(sf::Vector2u winsize)
 	m_body = this->m_game.GetWorld().CreateBody(&bodyDef);
 	
 	//Shape of phisical elements
-	b2PolygonShape hitBox;
-	hitBox.SetAsBox(pixelsToMeters(m_mainTexture.getSize().x * 0.5f), pixelsToMeters(m_mainTexture.getSize().y * 0.5f));
+	/*b2PolygonShape hitBox;
+	hitBox.SetAsBox(pixelsToMeters(m_mainTexture.getSize().x * 0.5f), pixelsToMeters(m_mainTexture.getSize().y * 0.5f));*/
+	b2CircleShape hitBox;
+	hitBox.m_radius = m_mainTexture.getSize().x * 0.5f / m_game.pixelsMetersRatio;
 
 	//The Fixture (phisic react)
 	b2FixtureDef playerFixtureDef;
@@ -74,6 +83,7 @@ void Character::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	states.transform *= getTransform();
 	target.draw(m_mainSprite, states);
 	target.draw(m_secondSprite, states);
+	target.draw(m_thirdSprite, states);
 }
 
 #pragma endregion
@@ -107,14 +117,19 @@ void Character::SetSpriteAlpha(sf::Sprite& sprite, float alphaValue)
 //Maximizes the AlphaValue of the Thruster
 void Character::MaxThrusterAlphaValue()
 {
-	SetSpriteAlpha(m_secondSprite, m_thrusterAlphaValue = 255.0f);
+	SetSpriteAlpha(m_secondSprite, m_secondSpriteAlphaValue = 255.0f);
+	SetSpriteAlpha(m_thirdSprite, m_thirdSpriteAlphaValue = 255.0f);
 }
 //Lowers the AlphaValue of the Thruster
 void Character::LowerThrusterAlphaValue() 
 {
-	if (m_thrusterAlphaValue >= 0.0f)
+	if (m_secondSpriteAlphaValue >= 0.0f)
 	{
-			SetSpriteAlpha(m_secondSprite, m_thrusterAlphaValue -= m_thrusterAlphaValue / 10);
+		SetSpriteAlpha(m_secondSprite, m_secondSpriteAlphaValue -= m_secondSpriteAlphaValue / 20);
+	}
+	if (m_thirdSpriteAlphaValue >= 0.0f)
+	{
+		SetSpriteAlpha(m_thirdSprite, m_thirdSpriteAlphaValue -= m_thirdSpriteAlphaValue / 10);
 	}
 }
 //Resets the Color to maxValue

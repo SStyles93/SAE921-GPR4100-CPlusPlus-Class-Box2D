@@ -9,17 +9,6 @@ class Game;
 class Boundary : public sf::Drawable, public sf::Transformable
 {
 
-private:
-	// Root game
-	Game& m_game;
-
-	// Graphic object
-	sf::RectangleShape m_shape;
-
-	// The box 2D object
-	b2Body* m_body = nullptr;
-
-	UserData* m_userData = new UserData(UserDataType::NONE);
 
 public:
 
@@ -31,6 +20,15 @@ public:
 	void Update();
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
+private:
+	// Root game
+	Game& m_game;
 
+	// Graphic object
+	sf::RectangleShape m_shape;
+
+	// The box 2D object
+	b2Body* m_body = nullptr;
+	UserData* m_userData = new UserData(UserDataType::NONE);
 
 };

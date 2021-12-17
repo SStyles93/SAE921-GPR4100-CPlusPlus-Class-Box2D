@@ -29,25 +29,25 @@ signed long UserData::getLocalId()
 
 #pragma endregion
 
-const std::string UserData::UserDataTypeToString(UserDataType type_)
-{
-
-	switch (type_)
-	{
-	case UserDataType::TRAIL:
-		return "TRAIL";
-		break;
-	case UserDataType::ROCKET:
-		return "ROCKET";
-		break;
-	case UserDataType::LIMIT:
-		return "LIMIT";
-		break;
-	case UserDataType::NONE:
-		return "NONE";
-		break;
-	default:
-		break;
-	}
-}
+//const std::string UserData::UserDataTypeToString(UserDataType type_)
+//{
+//
+//	switch (type_)
+//	{
+//	case UserDataType::TRAIL:
+//		return "TRAIL";
+//		break;
+//	case UserDataType::ROCKET:
+//		return "ROCKET";
+//		break;
+//	case UserDataType::LIMIT:
+//		return "LIMIT";
+//		break;
+//	case UserDataType::NONE:
+//		return "NONE";
+//		break;
+//	default:
+//		break;
+//	}
+//}
 

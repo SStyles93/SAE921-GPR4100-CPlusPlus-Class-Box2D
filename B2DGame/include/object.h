@@ -7,6 +7,21 @@ class Game;
 
 class Object : public sf::Drawable, public sf::Transformable
 {
+
+public:
+
+#pragma region GETTER/SETTER
+
+	sf::Sprite& GetSprite() { return m_sprite; };
+
+#pragma endregion
+#pragma region GAME METHODS
+
+	void Update();
+	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
+#pragma endregion
+
 protected:
 
 #pragma region SMFL
@@ -20,20 +35,6 @@ protected:
 
 	//B2D
 	b2Body* m_body = nullptr;
-
-#pragma endregion
-
-public:
-
-#pragma region GETTER/SETTER
-
-	sf::Sprite& GetSprite() { return m_sprite; };
-
-#pragma endregion
-#pragma region GAME METHODS
-
-	void Update();
-	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 #pragma endregion
 

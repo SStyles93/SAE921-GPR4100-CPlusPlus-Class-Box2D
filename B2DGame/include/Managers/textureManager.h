@@ -4,20 +4,6 @@
 
 class TextureManager
 {
-protected:
-#pragma region CONSTRUCTOR (SINGLETON)
-
-	TextureManager();
-	static TextureManager* m_textureManager;
-
-#pragma endregion
-#pragma region TEXTURES
-
-	sf::Texture m_starTexture;
-	sf::Texture m_trailTexture;
-
-#pragma endregion
-
 public:
 #pragma region DELETERS
 
@@ -42,7 +28,23 @@ public:
 #pragma region GETTER/SETTER
 
 	sf::Texture& GetStarTexture();
-	sf::Texture& GetTrailTexture();
+	sf::Texture& GetTrailTexture1();
+	sf::Texture& GetTrailTexture2();
+
+#pragma endregion
+
+protected:
+#pragma region CONSTRUCTOR (SINGLETON)
+
+	TextureManager();
+	static TextureManager* m_textureManager;
+
+#pragma endregion
+#pragma region TEXTURES
+
+	sf::Texture m_starTexture;
+	sf::Texture m_trailTexture1;
+	sf::Texture m_trailTexture2;
 
 #pragma endregion
 

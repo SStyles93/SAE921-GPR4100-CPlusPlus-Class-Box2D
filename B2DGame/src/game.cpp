@@ -1,5 +1,5 @@
 #include <random>
-
+#include <fstream>
 #include "game.h"
 
 #pragma region CONSTRUCTOR
@@ -40,11 +40,6 @@ Game::Game() :
 void Game::Init() 
 {
 	TextureManager* texture_manager = TextureManager::Instance();
-
-	std::random_device rd;
-	std::mt19937 generator(rd());
-	std::uniform_real_distribution<> rndPos(-1.0f, 1.0f);
-	std::uniform_real_distribution<> rndAngle(-1.0f, 1.0f); 
 
 #pragma region Window
 
@@ -88,7 +83,12 @@ void Game::Init()
 #pragma endregion
 #pragma region BackGroundElements
 
-	for (int star = 0; star < 100; star++) 
+	std::random_device rd;
+	std::mt19937 generator(rd());
+	std::uniform_real_distribution<> rndPos(-1.0f, 1.0f);
+	std::uniform_real_distribution<> rndAngle(0.0f, 360.0f);
+
+	for (int star = 0; star < 100; star++)
 	{
 		float scale = rndPos(generator);
 		m_stars.push_back(
@@ -135,9 +135,16 @@ void Game::Loop()
 
 		while (m_window.pollEvent(event))
 		{
+			//Score saving
+			std::ofstream outFile;
+			outFile.open("data/savedScore.txt", std::ios::in | std::ios::trunc);
+			
 			// Windows events -------------------------------------------------------------------------------
 			if (event.type == sf::Event::Closed)
 			{
+				outFile << m_score << std::endl;
+				outFile.close();
+				
 				m_window.close();
 				return;
 			}
@@ -152,7 +159,7 @@ void Game::Loop()
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
 			{
 				//Add Thrust
-				m_character.Move(b2Vec2(0.0f, 100.0f));
+				m_character.Move(b2Vec2(0.0f, 50.0f));
 
 				//Set alpha to max
 				m_character.MaxThrusterAlphaValue();
@@ -165,13 +172,13 @@ void Game::Loop()
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 			{
 				//Move Left
-				m_character.Move(b2Vec2(-100.0f, 0.0f));
+				m_character.Move(b2Vec2(-50.0f, 0.0f));
 				
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 			{
 				//Move Right
-				m_character.Move(b2Vec2(100.0f, 0.0f));
+				m_character.Move(b2Vec2(50.0f, 0.0f));
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
 			{
@@ -194,33 +201,21 @@ void Game::Loop()
 			std::mt19937 generator(rd()); // seed the generator
 			std::uniform_real_distribution<> rndPos(-1.0f, 1.0f); // define the range
 		
+			// Tick every 5.0sec
+			sf::Time elapsed = m_clock.restart();
+			m_deltaTime += elapsed;
+
 			//Updating Elements
 			//Character
 			m_character.Update();
+
 			for (auto& boundaries : m_boundaries) 
 			{
 				boundaries.Update();
 			}
-			//Stars (BackGround)
-			for (auto& star : m_stars)
-			{
-				star.Update();
-				//std::cout << object.GetSprite().getPosition().y << std::endl;
-				if (star.GetSprite().getPosition().y >= m_window.getSize().y)
-				{
-					star.GetSprite().setPosition(star.GetSprite().getPosition().x, 0.0f);
-				}
-			}
 
-			// Tick every 5.0sec
-			sf::Time elapsed = m_clock.restart();
-			m_deltaTime += elapsed;
-			
 			if (m_deltaTime.asSeconds() > 0.5f) 
 			{
-
-				std::random_device rd; // obtain a random number from hardware
-				std::mt19937 generator(rd()); // seed the generator
 				std::uniform_int_distribution<> rndX(0, m_window.getSize().x); // define the range
 				std::uniform_int_distribution<> rndY(0, m_window.getSize().y); // define the range
 
@@ -258,12 +253,24 @@ void Game::Loop()
 				m_character.ResetColor();
 			}
 		}
-		
 		m_character.LowerThrusterAlphaValue();
 
-		// Clear all background
+
+		//Stars (BackGround)
+		for (auto& star : m_stars)
+		{
+			star.Update();
+			//std::cout << object.GetSprite().getPosition().y << std::endl;
+			if (star.GetSprite().getPosition().y >= m_window.getSize().y)
+			{
+				star.GetSprite().setPosition(star.GetSprite().getPosition().x, 0.0f);
+				//m_stars.pop_back();
+			}
+		}
+
 #pragma region DRAW
 
+		// Clear all background
 		m_window.clear();
 		// Render All elements
 		//Draw Boundaries
@@ -281,7 +288,7 @@ void Game::Loop()
 		//Draw Trails
 		m_window.draw(m_trailManager);
 		//Draw Text
-		m_scoreText.setString("Score: " + std::to_string((int)m_score));
+		m_scoreText.setString("Score: " + std::to_string((int)m_score) + " s");
 		m_window.draw(m_scoreText);
 		m_lifeText.setString("Life: " + std::to_string((int)m_character.GetHealth()));
 		m_window.draw(m_lifeText);

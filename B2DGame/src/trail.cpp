@@ -11,10 +11,14 @@ Trail::Trail(b2World& world, sf::Vector2f pos)
 {
     //SET TEXTURE
 	TextureManager* textureManager = TextureManager::Instance();
-	m_sprite.setScale(sf::Vector2f(3, 3));
-	m_sprite.setTexture(textureManager->GetTrailTexture());
-	m_sprite.setOrigin(textureManager->GetTrailTexture().getSize().x * 0.5f, textureManager->GetTrailTexture().getSize().y * 0.5f);
-    m_sprite.setPosition(0, -75);
+	m_sprite1.setScale(sf::Vector2f(3, 3));
+	m_sprite1.setTexture(textureManager->GetTrailTexture1());
+	m_sprite1.setOrigin(textureManager->GetTrailTexture1().getSize().x * 0.5f, textureManager->GetTrailTexture1().getSize().y * 0.5f);
+    m_sprite1.setPosition(0, 0);
+    m_sprite2.setScale(sf::Vector2f(3, 3));
+    m_sprite2.setTexture(textureManager->GetTrailTexture2());
+    m_sprite2.setOrigin(textureManager->GetTrailTexture2().getSize().x * 0.5f, textureManager->GetTrailTexture2().getSize().y * 0.5f);
+    m_sprite2.setPosition(-5, -70);
 
     //BODYDEF
     b2BodyDef bodyDef;
@@ -33,8 +37,8 @@ Trail::Trail(b2World& world, sf::Vector2f pos)
     // Shape of the physical (A box)
     b2PolygonShape hitBox;
     hitBox.SetAsBox(
-        pixelsToMeters(textureManager->GetTrailTexture().getSize().x),
-        pixelsToMeters(textureManager->GetTrailTexture().getSize().y * 0.5f));
+        pixelsToMeters(textureManager->GetTrailTexture1().getSize().x),
+        pixelsToMeters(textureManager->GetTrailTexture1().getSize().y * 0.5f));
     /*hitBox.SetAsBox(0.2f, 0.5f);*/
 
     // The fixture is what it defines the physic react
@@ -74,7 +78,8 @@ void Trail::draw(sf::RenderTarget& target, sf::RenderStates states) const
     if (!m_isDead) 
     {
         states.transform *= getTransform();
-        target.draw(m_sprite, states);
+        target.draw(m_sprite1, states);
+        target.draw(m_sprite2, states);
     }
 }
 

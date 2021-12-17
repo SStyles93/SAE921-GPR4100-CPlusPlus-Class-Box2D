@@ -12,6 +12,7 @@ public:
 #pragma region GETTER/SETTER
 
 	sf::Sprite& GetSprite() { return m_sprite; };
+	/*b2Body* GetBody() { return m_body; };*/
 
 #pragma endregion
 #pragma region CONSTRUCTOR
@@ -37,11 +38,11 @@ protected:
 	sf::Texture m_texture;
 
 #pragma endregion
-#pragma region BOX2D
-
-	//B2D
-	b2Body* m_body = nullptr;
-
-#pragma endregion
+//#pragma region BOX2D
+//
+//	//B2D
+//	b2Body* m_body = nullptr;
+//
+//#pragma endregion
 
 };

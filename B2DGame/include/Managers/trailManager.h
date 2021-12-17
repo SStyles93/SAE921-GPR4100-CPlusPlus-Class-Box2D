@@ -10,17 +10,10 @@
 class TrailManager : public sf::Drawable
 {
 
-private:
-	std::vector<Trail> m_trails;
-	b2World& m_world;
-
 public:
-
-#pragma region CONSTRUCTOR
 
 	TrailManager(b2World& world);
 
-#pragma endregion
 #pragma region METHODS
 
 	// DRAWABLE OVERRIDES
@@ -31,5 +24,9 @@ public:
 	void DestroyTrail(int trailId);
 
 #pragma endregion
+
+private:
+	std::vector<Trail> m_trails;
+	b2World& m_world;
 
 };

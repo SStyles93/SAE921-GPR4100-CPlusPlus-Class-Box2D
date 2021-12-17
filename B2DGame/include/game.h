@@ -7,25 +7,23 @@
 #include "SFML/Audio.hpp"
 #include "box2d/b2_world.h"
 
+#include "Managers/textureManager.h"
+#include "Managers/contactListener.h"
+#include "Managers/trailManager.h"
+
 #include "character.h"
 #include "boundary.h"
 #include "object.h"
 #include "star.h"
 #include "trail.h"
-#include "Managers/textureManager.h"
-#include "Managers/contactListener.h"
-#include "Managers/trailManager.h"
 
 
 class Game {
 
 public:
-
-#pragma region CONSTRUCTOR
-
-	Game();
 	
-#pragma endregion
+	Game();
+
 #pragma region GAME METHODS
 	
 	void Init();

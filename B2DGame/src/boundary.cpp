@@ -37,7 +37,7 @@ void Boundary::Init(sf::Vector2f pos, sf::Vector2f size) {
     
     // Defining the shape
     m_shape.setSize(size);
-    //m_shape.setFillColor(sf::Color::Cyan);
+    m_shape.setFillColor(sf::Color(255,255,255,0));
     m_shape.setOrigin(0.5f * size.x, 0.5f * size.y);
 }
 

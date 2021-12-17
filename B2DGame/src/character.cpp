@@ -1,4 +1,4 @@
-#include "SFML_Utilities.h"
+#include "Managers/sfmlUtilities.h"
 
 #include "character.h"
 #include "game.h"

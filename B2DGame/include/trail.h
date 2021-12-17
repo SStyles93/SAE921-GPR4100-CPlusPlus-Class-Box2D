@@ -1,8 +1,8 @@
 #pragma once
 
-#include "UserData.h"
+#include "Managers/userData.h"
 #include "object.h"
-#include "SFML_Utilities.h"
+#include "Managers/sfmlUtilities.h"
 
 class Game;
 

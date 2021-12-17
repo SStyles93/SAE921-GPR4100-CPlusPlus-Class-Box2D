@@ -18,8 +18,10 @@ Game::Game() :
 	
 	//SOUND
 	m_bufferThruster.loadFromFile("data/sound/thruster.wav");
+	m_soundThruster.setVolume(40);
 	m_bufferCrash.loadFromFile("data/sound/crash.wav");
-	
+	m_soundCrash.setVolume(15);
+
 	//TEXT - Font
 	m_font.loadFromFile("data/font/RetroGaming.ttf");
 	//TEXT - Score
@@ -156,8 +158,8 @@ void Game::Loop()
 				m_character.MaxThrusterAlphaValue();
 
 				//play sound
-				m_sound1.setBuffer(m_bufferThruster);
-				m_sound1.play();
+				m_soundThruster.setBuffer(m_bufferThruster);
+				m_soundThruster.play();
 				
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
@@ -305,8 +307,8 @@ void Game::SetDamageToRocket(float damage)
 {
 	m_character.SetDamage(damage);
 	m_deltaTime2 = sf::Time::Zero;
-	m_sound2.setBuffer(m_bufferCrash);
-	m_sound2.play();
+	m_soundCrash.setBuffer(m_bufferCrash);
+	m_soundCrash.play();
 }
 
 #pragma endregion

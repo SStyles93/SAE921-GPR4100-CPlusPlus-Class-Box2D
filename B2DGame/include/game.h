@@ -12,12 +12,43 @@
 #include "object.h"
 #include "star.h"
 #include "trail.h"
-#include "TextureManager.h"
-#include "ContactListener.h"
-#include "TrailManager.h"
+#include "Managers/textureManager.h"
+#include "Managers/contactListener.h"
+#include "Managers/trailManager.h"
 
 
 class Game {
+
+public:
+
+#pragma region CONSTRUCTOR
+
+	Game();
+	
+#pragma endregion
+#pragma region GAME METHODS
+	
+	void Init();
+	void Loop();
+
+	void SetDamageToRocket(float damages);
+	void DestroyTrail(int idTrail);
+
+#pragma endregion
+#pragma region GETTER/SETTER
+
+	b2World& GetWorld() { return m_world; }; 
+
+#pragma endregion
+#pragma region CONVERSION METHODS
+
+	static b2Vec2 pixelsToMeters(sf::Vector2f pixels);
+	static b2Vec2 pixelsToMeters(sf::Vector2u pixels);
+	static float pixelsToMeters(float pixels);
+	static sf::Vector2f metersToPixels(b2Vec2 meters);
+	static const float pixelsMetersRatio;
+
+#pragma endregion
 
 private:
 
@@ -57,8 +88,8 @@ private:
 	//Sound
 	sf::SoundBuffer m_bufferThruster;
 	sf::SoundBuffer m_bufferCrash;
-	sf::Sound m_sound1;
-	sf::Sound m_sound2;
+	sf::Sound m_soundThruster;
+	sf::Sound m_soundCrash;
 
 	//Text
 	sf::Font m_font;
@@ -68,36 +99,5 @@ private:
 #pragma endregion
 
 	bool m_gameOver = false;
-
-public:
-
-#pragma region CONSTRUCTOR
-
-	Game();
-	
-#pragma endregion
-#pragma region GAME METHODS
-	
-	void Init();
-	void Loop();
-
-	void SetDamageToRocket(float damages);
-	void DestroyTrail(int idTrail);
-
-#pragma endregion
-#pragma region GETTER/SETTER
-
-	b2World& GetWorld() { return m_world; }; 
-
-#pragma endregion
-#pragma region CONVERSION METHODS
-
-	static b2Vec2 pixelsToMeters(sf::Vector2f pixels);
-	static b2Vec2 pixelsToMeters(sf::Vector2u pixels);
-	static float pixelsToMeters(float pixels);
-	static sf::Vector2f metersToPixels(b2Vec2 meters);
-	static const float pixelsMetersRatio;
-
-#pragma endregion
 
 };

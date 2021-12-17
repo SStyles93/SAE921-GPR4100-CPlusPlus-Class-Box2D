@@ -1,6 +1,6 @@
 #include "game.h"
 #include "object.h"
-#include "SFML_Utilities.h"
+#include "Managers/sfmlUtilities.h"
 
 #pragma region CONSTRUCTOR
 

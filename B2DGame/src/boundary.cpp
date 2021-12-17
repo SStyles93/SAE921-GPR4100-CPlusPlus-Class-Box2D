@@ -1,6 +1,6 @@
 #include "boundary.h"
 #include "game.h"
-#include "SFML_Utilities.h"
+#include "Managers/sfmlUtilities.h"
 
 Boundary::Boundary(Game& game, sf::Vector2f pos, sf::Vector2f size, bool flag) : m_game(game)
 {

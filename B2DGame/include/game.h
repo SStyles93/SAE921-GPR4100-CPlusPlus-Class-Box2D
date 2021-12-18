@@ -72,8 +72,8 @@ private:
 	sf::RenderWindow m_window;
 
 	//Time Values
-	sf::Clock m_clock;
-	sf::Time m_deltaTime;
+	sf::Clock m_clock1;
+	sf::Time m_deltaTime1;
 	sf::Clock m_clock2;
 	sf::Time m_deltaTime2;
 

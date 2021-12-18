@@ -18,7 +18,12 @@ Trail::Trail(b2World& world, sf::Vector2f pos)
     m_sprite2.setScale(sf::Vector2f(3, 3));
     m_sprite2.setTexture(textureManager->GetTrailTexture2());
     m_sprite2.setOrigin(textureManager->GetTrailTexture2().getSize().x * 0.5f, textureManager->GetTrailTexture2().getSize().y * 0.5f);
-    m_sprite2.setPosition(-5, -70);
+    m_sprite2.setPosition(-5, -100);
+    m_sprite3.setScale(sf::Vector2f(3, 3));
+    m_sprite3.setTexture(textureManager->GetTrailTexture2());
+    m_sprite3.setOrigin(textureManager->GetTrailTexture2().getSize().x * 0.5f, textureManager->GetTrailTexture2().getSize().y * 0.5f);
+    m_sprite3.setPosition(-5, -150);
+    m_sprite3.setColor(sf::Color(255, 255, 255, 100));
 
     //BODYDEF
     b2BodyDef bodyDef;
@@ -66,6 +71,7 @@ void Trail::Update()
         // Translate meters to pixels
         sf::Vector2f graphicPosition = metersToPixels(bodyPos);
         // Set the position of the Graphic object
+        m_sprite3.setColor(sf::Color(255, 255, 255, (255 * 0.5f * sinf(graphicPosition.y))));
         setPosition(graphicPosition);
     }
     if (m_isDead)
@@ -78,8 +84,9 @@ void Trail::draw(sf::RenderTarget& target, sf::RenderStates states) const
     if (!m_isDead) 
     {
         states.transform *= getTransform();
-        target.draw(m_sprite1, states);
         target.draw(m_sprite2, states);
+        target.draw(m_sprite1, states);
+        target.draw(m_sprite3, states);
     }
 }
 

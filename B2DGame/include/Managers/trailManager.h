@@ -19,6 +19,7 @@ public:
 	// DRAWABLE OVERRIDES
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 	void Update();
+
 	//MANAGER METHODS
 	void AddTrail(sf::Vector2f startPos);
 	void DestroyTrail(int trailId);

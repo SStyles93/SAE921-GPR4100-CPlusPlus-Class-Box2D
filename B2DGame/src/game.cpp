@@ -37,9 +37,8 @@ Game::Game() :
 
 #pragma endregion
 #pragma region GAME METHODS
-void Game::Init() 
+void Game::Init()
 {
-	TextureManager* texture_manager = TextureManager::Instance();
 
 #pragma region Window
 
@@ -88,14 +87,18 @@ void Game::Init()
 	std::uniform_real_distribution<> rndPos(-1.0f, 1.0f);
 	std::uniform_real_distribution<> rndAngle(0.0f, 360.0f);
 
-	for (int star = 0; star < 100; star++)
+	for (int stars = 0; stars < 100; stars++)
 	{
 		float scale = rndPos(generator);
-		m_stars.push_back(
-			Star(*this,
-				sf::Vector2f(m_window.getSize().x * rndPos(generator), m_window.getSize().y * rndPos(generator)),
-				sf::Vector2f(scale, scale),
-				rndAngle(generator)));
+		if (stars % 2) 
+		{
+
+			m_stars.push_back(
+				Star(*this,
+					sf::Vector2f(m_window.getSize().x * rndPos(generator), m_window.getSize().y * rndPos(generator)),
+					sf::Vector2f(scale, scale),
+					rndAngle(generator)));
+		}
 	}
 
 #pragma endregion
@@ -123,7 +126,16 @@ void Game::Loop()
 	while (m_window.isOpen())
 	{
 		//Game Timer used for the Score
-		sf::Time elapsed = m_scoreClock.restart();
+		sf::Time elapsed;
+		if (!m_gameOver)
+		{
+			elapsed = m_scoreClock.restart();
+		}
+		else
+		{
+			//if GameOver, block the score
+			elapsed.Zero;
+		}
 		m_scoreTime += elapsed;
 		m_score = m_scoreTime.asSeconds();
 		
@@ -142,9 +154,6 @@ void Game::Loop()
 			// Windows events -------------------------------------------------------------------------------
 			if (event.type == sf::Event::Closed)
 			{
-				outFile << m_score << std::endl;
-				outFile.close();
-				
 				m_window.close();
 				return;
 			}
@@ -154,36 +163,43 @@ void Game::Loop()
 				view.setSize(event.size.width, event.size.height);
 				m_window.setView(view);
 			}
+			if (!m_gameOver)
+			{
+				// Keyboard events
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+				{
+					//Add Thrust
+					m_character.Move(b2Vec2(0.0f, 50.0f));
 
-			// Keyboard events
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
-			{
-				//Add Thrust
-				m_character.Move(b2Vec2(0.0f, 50.0f));
+					//Set alpha to max
+					m_character.MaxThrusterAlphaValue();
 
-				//Set alpha to max
-				m_character.MaxThrusterAlphaValue();
+					//play sound
+					m_soundThruster.setBuffer(m_bufferThruster);
+					m_soundThruster.play();
 
-				//play sound
-				m_soundThruster.setBuffer(m_bufferThruster);
-				m_soundThruster.play();
-				
+				}
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+				{
+					//Move Left
+					m_character.Move(b2Vec2(-50.0f, 0.0f));
+
+				}
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+				{
+					//Move Right
+					m_character.Move(b2Vec2(50.0f, 0.0f));
+				}
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
+				{
+					//Move Down
+					m_character.Move(b2Vec2(0.0f, -20.0f));
+				}
 			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+			else 
 			{
-				//Move Left
-				m_character.Move(b2Vec2(-50.0f, 0.0f));
-				
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
-			{
-				//Move Right
-				m_character.Move(b2Vec2(50.0f, 0.0f));
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
-			{
-				//Move Down
-				m_character.Move(b2Vec2(0.0f, -20.0f));
+				outFile << m_score << std::endl;
+				outFile.close();
 			}
 		}
 
@@ -202,8 +218,8 @@ void Game::Loop()
 			std::uniform_real_distribution<> rndPos(-1.0f, 1.0f); // define the range
 		
 			// Tick every 5.0sec
-			sf::Time elapsed = m_clock.restart();
-			m_deltaTime += elapsed;
+			sf::Time elapsed = m_clock1.restart();
+			m_deltaTime1 += elapsed;
 
 			//Updating Elements
 			//Character
@@ -214,7 +230,10 @@ void Game::Loop()
 				boundaries.Update();
 			}
 
-			if (m_deltaTime.asSeconds() > 0.5f) 
+			//the higher de levelDuration float is, easier and longer are the games.
+			float levelDuration = 1;
+			levelDuration / m_scoreTime.asSeconds();
+			if (m_deltaTime1.asSeconds() > levelDuration)
 			{
 				std::uniform_int_distribution<> rndX(0, m_window.getSize().x); // define the range
 				std::uniform_int_distribution<> rndY(0, m_window.getSize().y); // define the range
@@ -226,7 +245,7 @@ void Game::Loop()
 				// Pop Trail
 				m_trailManager.AddTrail(rndPos);
 
-				m_deltaTime = sf::Time::Zero;
+				m_deltaTime1 = sf::Time::Zero;
 			}
 
 			//Trails
@@ -235,36 +254,37 @@ void Game::Loop()
 			if (m_character.GetHealth() <= 0) 
 			{
 				m_gameOver = true;
-				return;
 			}
 		}
 #pragma endregion
 #pragma region Graphical process
 
-		sf::Time elapsedTime = m_clock2.restart();
-		m_deltaTime2 += elapsedTime;
-
-		sf::Color fullColor = sf::Color(255, 255, 255, 255);
-		if (m_deltaTime2.asSeconds() > 0.25f) 
+		if (!m_gameOver)
 		{
-			m_deltaTime2 = sf::Time::Zero;
-			if (m_character.GetMainSprite().getColor() == sf::Color::Red)
+			sf::Time elapsedTime = m_clock2.restart();
+			m_deltaTime2 += elapsedTime;
+
+			if (m_deltaTime2.asSeconds() > 0.25f)
 			{
-				m_character.ResetColor();
+				m_deltaTime2 = sf::Time::Zero;
+				if (m_character.GetMainSprite().getColor() == sf::Color::Red)
+				{
+					m_character.ResetColor();
+				}
 			}
-		}
-		m_character.LowerThrusterAlphaValue();
 
+			m_character.LowerThrusterAlphaValue();
 
-		//Stars (BackGround)
-		for (auto& star : m_stars)
-		{
-			star.Update();
-			//std::cout << object.GetSprite().getPosition().y << std::endl;
-			if (star.GetSprite().getPosition().y >= m_window.getSize().y)
+			//Stars (BackGround)
+			for (auto& star : m_stars)
 			{
-				star.GetSprite().setPosition(star.GetSprite().getPosition().x, 0.0f);
-				//m_stars.pop_back();
+				star.Update();
+				//std::cout << object.GetSprite().getPosition().y << std::endl;
+				if (star.GetSprite().getPosition().y >= m_window.getSize().y)
+				{
+					star.GetSprite().setPosition(star.GetSprite().getPosition().x, 0.0f);
+					//m_stars.pop_back();
+				}
 			}
 		}
 
@@ -272,21 +292,24 @@ void Game::Loop()
 
 		// Clear all background
 		m_window.clear();
-		// Render All elements
-		//Draw Boundaries
-		for (auto& boundary : m_boundaries) 
+		if (!m_gameOver)
 		{
-			m_window.draw(boundary);
-		}
+			// Render All elements
+			//Draw Boundaries
+			for (auto& boundary : m_boundaries)
+			{
+				m_window.draw(boundary);
+			}
 
-		for (auto& star : m_stars) 
-		{
-			m_window.draw(star);
+			for (auto& star : m_stars)
+			{
+				m_window.draw(star);
+			}
+			//Draw Character
+			m_window.draw(m_character);
+			//Draw Trails
+			m_window.draw(m_trailManager);
 		}
-		//Draw Character
-		m_window.draw(m_character);
-		//Draw Trails
-		m_window.draw(m_trailManager);
 		//Draw Text
 		m_scoreText.setString("Score: " + std::to_string((int)m_score) + " s");
 		m_window.draw(m_scoreText);

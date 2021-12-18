@@ -5,9 +5,9 @@
 
 Star::Star(Game& game, sf::Vector2f pos, sf::Vector2f scale, float angle) : m_game(game)
 {
-	TextureManager* texture_manager = TextureManager::Instance();
-	m_sprite.setTexture(texture_manager->GetStarTexture());
-	m_sprite.setOrigin(texture_manager->GetStarTexture().getSize().x * 0.5f, texture_manager->GetStarTexture().getSize().y * 0.5f);
+	TextureManager* textureManager = TextureManager::Instance();
+	m_sprite.setTexture(textureManager->GetStarTexture1());
+	m_sprite.setOrigin(textureManager->GetStarTexture1().getSize().x * 0.5f, textureManager->GetStarTexture1().getSize().y * 0.5f);
 	m_sprite.setPosition(pos);
 	m_sprite.setScale(scale);
 	m_sprite.setRotation(angle);

@@ -27,7 +27,8 @@ public:
 #pragma endregion
 #pragma region GETTER/SETTER
 
-	sf::Texture& GetStarTexture();
+	sf::Texture& GetStarTexture1();
+	sf::Texture& GetStarTexture2();
 	sf::Texture& GetTrailTexture1();
 	sf::Texture& GetTrailTexture2();
 
@@ -42,7 +43,8 @@ protected:
 #pragma endregion
 #pragma region TEXTURES
 
-	sf::Texture m_starTexture;
+	sf::Texture m_starTexture1;
+	sf::Texture m_starTexture2;
 	sf::Texture m_trailTexture1;
 	sf::Texture m_trailTexture2;
 

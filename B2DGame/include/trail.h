@@ -19,6 +19,7 @@ public:
 	bool GetIsDead();
 	sf::Sprite& GetSprite1() { return m_sprite1; };
 	sf::Sprite& GetSprite2() { return m_sprite2; };
+	sf::Sprite& GetSprite3() { return m_sprite3; };
 	b2Body* GetBody() { return m_body; };
 
 #pragma endregion
@@ -36,10 +37,9 @@ protected:
 	//SPRITE & TEXTURE
 	sf::Sprite m_sprite1;
 	std::string m_spriteAdress1;
-	sf::Texture m_texture1;
 	sf::Sprite m_sprite2;
 	std::string m_spriteAdress2;
-	sf::Texture m_texture2;
+	sf::Sprite m_sprite3;
 
 #pragma endregion
 #pragma region BOX2D

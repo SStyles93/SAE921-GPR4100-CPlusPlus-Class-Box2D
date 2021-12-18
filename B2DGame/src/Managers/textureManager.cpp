@@ -4,7 +4,8 @@ TextureManager* TextureManager::m_textureManager = nullptr;
 
 TextureManager::TextureManager()
 {
-    m_starTexture.loadFromFile("data/sprites/star.png");
+    m_starTexture1.loadFromFile("data/sprites/star1.png");
+    m_starTexture2.loadFromFile("data/sprites/star2.png");
     m_trailTexture1.loadFromFile("data/sprites/meteor.png");
     m_trailTexture2.loadFromFile("data/sprites/meteorTrail.png");
 }
@@ -24,9 +25,13 @@ TextureManager* TextureManager::Instance()
 }
 #pragma region GETTER/SETTER
 
-sf::Texture& TextureManager::GetStarTexture() 
+sf::Texture& TextureManager::GetStarTexture1()
 {
-    return m_starTexture;
+    return m_starTexture1;
+}
+sf::Texture& TextureManager::GetStarTexture2()
+{
+    return m_starTexture2;
 }
 sf::Texture& TextureManager::GetTrailTexture1() 
 {

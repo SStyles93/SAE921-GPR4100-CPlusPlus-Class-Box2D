@@ -10,7 +10,7 @@ class Trail : public sf::Drawable, public sf::Transformable
 {
 public:
 
-	Trail(b2World& world, sf::Vector2f pos);
+	Trail(b2World& world, sf::Vector2f pos, float scale);
 
 #pragma region GETTER/SETTER
 

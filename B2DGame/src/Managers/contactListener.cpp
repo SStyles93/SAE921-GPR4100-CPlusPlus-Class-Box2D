@@ -42,7 +42,7 @@ void ContactListener::EndContact(b2Contact* contact)
     {
         if (B_Data->getUserDataType() == UserDataType::ROCKET || A_Data->getUserDataType() == UserDataType::ROCKET)
         {
-            m_game.SetDamageToRocket(5);
+            m_game.SetDamageToRocket(25);
         }
     }
 }

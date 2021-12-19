@@ -2,8 +2,6 @@
 #include <fstream>
 #include "game.h"
 
-#pragma region CONSTRUCTOR
-
 Game::Game() :
 	m_gravity(0.0f, -.981f),
 	m_world(m_gravity),
@@ -11,7 +9,8 @@ Game::Game() :
 	m_contacts(*this),
 	m_trailManager(m_world)
 {
-	//MUSIC
+	#pragma region Music & Sound
+
 	m_music.openFromFile("data/music/space.wav");
 	m_music.setVolume(25);
 	m_music.setLoop(true);
@@ -22,32 +21,38 @@ Game::Game() :
 	m_bufferCrash.loadFromFile("data/sound/crash.wav");
 	m_soundCrash.setVolume(15);
 
+	#pragma endregion
+	#pragma region Text
+
 	//TEXT - Font
 	m_font.loadFromFile("data/font/RetroGaming.ttf");
 	//TEXT - Score
 	m_scoreText.setFont(m_font);
-	m_scoreText.setCharacterSize(80); // in pixels, not points!
+	m_scoreText.setCharacterSize(80); // in pixels
 	m_scoreText.setFillColor(sf::Color::Red);
 	//TEXT - Life
 	m_lifeText.setFont(m_font);
 	m_lifeText.setCharacterSize(80);
 	m_lifeText.setFillColor(sf::Color::Red);
-	
+	//TEXT - GameOver
+	m_gameOverText.setFont(m_font);
+	m_gameOverText.setCharacterSize(80);
+	m_gameOverText.setFillColor(sf::Color::Red);
+
+	#pragma endregion
 }
 
-#pragma endregion
-#pragma region GAME METHODS
 void Game::Init()
 {
 
-#pragma region Window
+	#pragma region Window
 
 	m_window.create(sf::VideoMode(1280, 1024), "ToTheMoonAndBack");
 	m_window.setVerticalSyncEnabled(true);
 	m_window.setFramerateLimit(60.0f);
 	
-#pragma endregion
-#pragma region WindowLimits
+	#pragma endregion
+	#pragma region WindowLimits
 
 	// Set Boudaries (Game&, Position, Size)
 	// Top Boundary
@@ -79,43 +84,42 @@ void Game::Init()
 			sf::Vector2f(10.0f, m_window.getSize().y),
 			false));
 
-#pragma endregion
-#pragma region BackGroundElements
+	#pragma endregion
+	#pragma region BackGroundElements
 
+	//Initializes the star background
 	std::random_device rd;
 	std::mt19937 generator(rd());
 	std::uniform_real_distribution<> rndPos(-1.0f, 1.0f);
 	std::uniform_real_distribution<> rndAngle(0.0f, 360.0f);
 
-	for (int stars = 0; stars < 100; stars++)
+	for (m_starsCount = 0; m_starsCount < 100; m_starsCount++)
 	{
 		float scale = rndPos(generator);
-		if (stars % 2) 
-		{
 
-			m_stars.push_back(
+		m_stars.push_back(
 				Star(*this,
 					sf::Vector2f(m_window.getSize().x * rndPos(generator), m_window.getSize().y * rndPos(generator)),
 					sf::Vector2f(scale, scale),
 					rndAngle(generator)));
-		}
 	}
 
-#pragma endregion
-#pragma region GameElements
+	#pragma endregion
+	#pragma region GameElements
 
 	m_world.SetContactListener(&m_contacts);
 
 	m_character.Init(m_window.getSize());
 	m_character.move(sf::Vector2f(0.5f * m_window.getSize().x, 0.5f * m_window.getSize().y));
 
-#pragma endregion
-#pragma region UiElements
+	#pragma endregion
+	#pragma region UiElements
 
 	m_scoreText.setPosition(sf::Vector2f(m_window.getSize().x * 0.025f, 0));
 	m_lifeText.setPosition(sf::Vector2f(m_window.getSize().x * 0.7f, 0));
+	m_gameOverText.setPosition(sf::Vector2f(m_window.getSize().x * 0.3f, m_window.getSize().y * 0.5f));
 
-#pragma endregion
+	#pragma endregion
 
 }
 void Game::Loop()
@@ -125,6 +129,8 @@ void Game::Loop()
 
 	while (m_window.isOpen())
 	{
+		#pragma region Score managment
+
 		//Game Timer used for the Score
 		sf::Time elapsed;
 		if (!m_gameOver)
@@ -138,9 +144,9 @@ void Game::Loop()
 		}
 		m_scoreTime += elapsed;
 		m_score = m_scoreTime.asSeconds();
-		
-		
-#pragma region Event processes
+
+		#pragma endregion	
+		#pragma region Event processes
 		sf::Event event;
 
 		m_window.setKeyRepeatEnabled(false);
@@ -203,8 +209,8 @@ void Game::Loop()
 			}
 		}
 
-#pragma endregion
-#pragma region Physical process
+		#pragma endregion
+		#pragma region Physical process
 		if(!m_gameOver)
 		{
 			// Updating the world with a delay
@@ -215,52 +221,86 @@ void Game::Loop()
 
 			std::random_device rd; // obtain a random number from hardware
 			std::mt19937 generator(rd()); // seed the generator
-			std::uniform_real_distribution<> rndPos(-1.0f, 1.0f); // define the range
-		
-			// Tick every 5.0sec
-			sf::Time elapsed = m_clock1.restart();
-			m_deltaTime1 += elapsed;
 
-			//Updating Elements
-			//Character
+			//Updating Physical Elements
+			#pragma region Character
+
 			m_character.Update();
+
+			if (m_character.GetHealth() <= 0) 
+			{
+				m_gameOver = true;
+			}
+
+#pragma endregion
+			#pragma region Boundaries
 
 			for (auto& boundaries : m_boundaries) 
 			{
 				boundaries.Update();
 			}
 
+#pragma endregion
+			#pragma region Trails
+
+			// Tick every 5.0sec
+			sf::Time elapsed = m_clock1.restart();
+			m_deltaTime1 += elapsed;
+
 			//the higher de levelDuration float is, easier and longer are the games.
-			float levelDuration = 1;
+			float levelDuration = m_levelDuration;
 			levelDuration / m_scoreTime.asSeconds();
 			if (m_deltaTime1.asSeconds() > levelDuration)
 			{
-				std::uniform_int_distribution<> rndX(0, m_window.getSize().x); // define the range
-				std::uniform_int_distribution<> rndY(0, m_window.getSize().y); // define the range
+				// define the range of Positions
+				std::uniform_int_distribution<> rndX(0, m_window.getSize().x);
+				// define the range of Scales
+				std::uniform_int_distribution<> rndY(m_minTrailScaleValue, m_maxTrailScaleValue);
+				//define the range of Angles (Not used at the moment)
+				std::uniform_real_distribution<> rndAngle(0.0f, 360.0f);
 
 				sf::Vector2f rndPos((rndX(generator)), pixelsToMeters(0.0f));
-				//test pos
-				sf::Vector2f testPos(10, 0.0f);
+				float rndScale(rndY(generator));
+				//test position
+				//sf::Vector2f testPos(10, 0.0f);
 
-				// Pop Trail
-				m_trailManager.AddTrail(rndPos);
-
+				//Pop Trail
+				m_trailManager.AddTrail(rndPos, rndScale);
+				//Reset timer
 				m_deltaTime1 = sf::Time::Zero;
 			}
 
 			//Trails
 			m_trailManager.Update();
 
-			if (m_character.GetHealth() <= 0) 
-			{
-				m_gameOver = true;
-			}
-		}
 #pragma endregion
-#pragma region Graphical process
+			//Stars NOT USED (yet)
+			#pragma region Stars
+
+			//Creates stars when there a less than the ammount wanted in the Init()
+			std::uniform_real_distribution<> rndPos1(-1.0f, 1.0f);
+			std::uniform_real_distribution<> rndAngle1(0.0f, 360.0f);
+			if (m_stars.size() < m_starsCount) 
+			{
+				float scale = rndPos1(generator);
+				
+				m_stars.push_back(
+						Star(*this,
+							sf::Vector2f(m_window.getSize().x * rndPos1(generator), m_window.getSize().y * rndPos1(generator)),
+							sf::Vector2f(scale, scale),
+							rndAngle1(generator)));
+			}
+
+#pragma endregion
+
+		}
+		#pragma endregion
+		#pragma region Graphical process
 
 		if (!m_gameOver)
 		{
+			#pragma region Character
+
 			sf::Time elapsedTime = m_clock2.restart();
 			m_deltaTime2 += elapsedTime;
 
@@ -275,7 +315,9 @@ void Game::Loop()
 
 			m_character.LowerThrusterAlphaValue();
 
-			//Stars (BackGround)
+#pragma endregion
+			#pragma region Stars
+
 			for (auto& star : m_stars)
 			{
 				star.Update();
@@ -286,12 +328,18 @@ void Game::Loop()
 					//m_stars.pop_back();
 				}
 			}
+
+#pragma endregion
 		}
 
-#pragma region DRAW
 
-		// Clear all background
+
+		#pragma endregion
+		#pragma region Draw
+
+		// Clear all elements from background
 		m_window.clear();
+
 		if (!m_gameOver)
 		{
 			// Render All elements
@@ -310,6 +358,11 @@ void Game::Loop()
 			//Draw Trails
 			m_window.draw(m_trailManager);
 		}
+		if (m_gameOver) 
+		{
+			m_gameOverText.setString("Game Over");
+			m_window.draw(m_gameOverText);
+		}
 		//Draw Text
 		m_scoreText.setString("Score: " + std::to_string((int)m_score) + " s");
 		m_window.draw(m_scoreText);
@@ -318,13 +371,10 @@ void Game::Loop()
 		// Display all elements
 		m_window.display();
 
-#pragma endregion
-
-#pragma endregion
+		#pragma endregion
 
 	}
 }
-#pragma endregion
 
 #pragma region ContactMethods
 

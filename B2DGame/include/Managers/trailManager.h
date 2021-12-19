@@ -21,7 +21,7 @@ public:
 	void Update();
 
 	//MANAGER METHODS
-	void AddTrail(sf::Vector2f startPos);
+	void AddTrail(sf::Vector2f startPos, float scale);
 	void DestroyTrail(int trailId);
 
 #pragma endregion

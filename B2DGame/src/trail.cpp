@@ -7,22 +7,22 @@ long Trail::m_localTrailId = 0;
 
 #pragma region CONSTRUCTOR
 
-Trail::Trail(b2World& world, sf::Vector2f pos)
+Trail::Trail(b2World& world, sf::Vector2f pos , float scale)
 {
     //SET TEXTURE
 	TextureManager* textureManager = TextureManager::Instance();
-	m_sprite1.setScale(sf::Vector2f(3, 3));
+	m_sprite1.setScale(sf::Vector2f(scale, scale));
 	m_sprite1.setTexture(textureManager->GetTrailTexture1());
 	m_sprite1.setOrigin(textureManager->GetTrailTexture1().getSize().x * 0.5f, textureManager->GetTrailTexture1().getSize().y * 0.5f);
-    m_sprite1.setPosition(0, 0);
-    m_sprite2.setScale(sf::Vector2f(3, 3));
+    m_sprite1.setPosition(0.0f * scale, 0.0f * scale);
+    m_sprite2.setScale(sf::Vector2f(scale, scale));
     m_sprite2.setTexture(textureManager->GetTrailTexture2());
     m_sprite2.setOrigin(textureManager->GetTrailTexture2().getSize().x * 0.5f, textureManager->GetTrailTexture2().getSize().y * 0.5f);
-    m_sprite2.setPosition(-5, -100);
-    m_sprite3.setScale(sf::Vector2f(3, 3));
+    m_sprite2.setPosition(-1.66f * scale, -33.33f * scale);
+    m_sprite3.setScale(sf::Vector2f(scale, scale));
     m_sprite3.setTexture(textureManager->GetTrailTexture2());
     m_sprite3.setOrigin(textureManager->GetTrailTexture2().getSize().x * 0.5f, textureManager->GetTrailTexture2().getSize().y * 0.5f);
-    m_sprite3.setPosition(-5, -150);
+    m_sprite3.setPosition(-1.66f * scale, -50.0f * scale);
     m_sprite3.setColor(sf::Color(255, 255, 255, 100));
 
     //BODYDEF
@@ -41,10 +41,12 @@ Trail::Trail(b2World& world, sf::Vector2f pos)
 
     // Shape of the physical (A box)
     b2PolygonShape hitBox;
-    hitBox.SetAsBox(
+    /*hitBox.SetAsBox(
         pixelsToMeters(textureManager->GetTrailTexture1().getSize().x),
-        pixelsToMeters(textureManager->GetTrailTexture1().getSize().y * 0.5f));
-    /*hitBox.SetAsBox(0.2f, 0.5f);*/
+        pixelsToMeters(textureManager->GetTrailTexture1().getSize().y * 0.5f));*/
+    hitBox.SetAsBox(
+        textureManager->GetTrailTexture1().getSize().x * 0.5f * (scale / 3) / Game::pixelsMetersRatio,
+        textureManager->GetTrailTexture1().getSize().y * 0.5f * (scale / 3) / Game::pixelsMetersRatio);
 
     // The fixture is what it defines the physic react
     b2FixtureDef playerFixtureDef;

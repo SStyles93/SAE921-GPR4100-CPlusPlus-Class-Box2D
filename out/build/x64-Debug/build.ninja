@@ -66,7 +66,7 @@ build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 #############################################
 # Utility command for DataTarget-B2DGame
 
-build B2DGame\DataTarget-B2DGame: phony B2DGame\CMakeFiles\DataTarget-B2DGame B2DGame\data\font\RetroGaming.ttf B2DGame\data\font\retrogaming.zip B2DGame\data\music\space.mp3 B2DGame\data\music\space.wav B2DGame\data\savedScore.txt B2DGame\data\sound\crash.wav B2DGame\data\sound\thruster.wav B2DGame\data\sprites\Planet.png B2DGame\data\sprites\capsule.png B2DGame\data\sprites\capsuleSpeed.png B2DGame\data\sprites\capsuleTrail.png B2DGame\data\sprites\fire.png B2DGame\data\sprites\meteor.png B2DGame\data\sprites\meteorTrail.png B2DGame\data\sprites\rocket.png B2DGame\data\sprites\star1.png B2DGame\data\sprites\star2.png B2DGame\data\sprites\trail.png
+build B2DGame\DataTarget-B2DGame: phony B2DGame\CMakeFiles\DataTarget-B2DGame B2DGame\data\font\RetroGaming.ttf B2DGame\data\font\retrogaming.zip B2DGame\data\music\space.mp3 B2DGame\data\music\space.wav B2DGame\data\savedScore.txt B2DGame\data\sound\crash.wav B2DGame\data\sound\thruster.wav B2DGame\data\sprites\Planet.png B2DGame\data\sprites\capsule.png B2DGame\data\sprites\capsule1.png B2DGame\data\sprites\capsuleSpeed.png B2DGame\data\sprites\capsuleSpeed1.png B2DGame\data\sprites\capsuleTrail.png B2DGame\data\sprites\fire.png B2DGame\data\sprites\meteor.png B2DGame\data\sprites\meteorTrail.png B2DGame\data\sprites\rocket.png B2DGame\data\sprites\star1.png B2DGame\data\sprites\star2.png B2DGame\data\sprites\trail.png
 
 # =============================================================================
 # Object build statements for EXECUTABLE target B2DGame
@@ -232,7 +232,7 @@ build B2DGame\rebuild_cache: phony B2DGame\CMakeFiles\rebuild_cache.util
 #############################################
 # Phony custom command for B2DGame\CMakeFiles\DataTarget-B2DGame
 
-build B2DGame\CMakeFiles\DataTarget-B2DGame: phony B2DGame\data\font\RetroGaming.ttf B2DGame\data\font\retrogaming.zip B2DGame\data\music\space.mp3 B2DGame\data\music\space.wav B2DGame\data\savedScore.txt B2DGame\data\sound\crash.wav B2DGame\data\sound\thruster.wav B2DGame\data\sprites\Planet.png B2DGame\data\sprites\capsule.png B2DGame\data\sprites\capsuleSpeed.png B2DGame\data\sprites\capsuleTrail.png B2DGame\data\sprites\fire.png B2DGame\data\sprites\meteor.png B2DGame\data\sprites\meteorTrail.png B2DGame\data\sprites\rocket.png B2DGame\data\sprites\star1.png B2DGame\data\sprites\star2.png B2DGame\data\sprites\trail.png ..\..\..\B2DGame\data\font\RetroGaming.ttf ..\..\..\B2DGame\data\font\retrogaming.zip ..\..\..\B2DGame\data\music\space.mp3 ..\..\..\B2DGame\data\music\space.wav ..\..\..\B2DGame\data\savedScore.txt ..\..\..\B2DGame\data\sound\crash.wav ..\..\..\B2DGame\data\sound\thruster.wav ..\..\..\B2DGame\data\sprites\Planet.png ..\..\..\B2DGame\data\sprites\capsule.png ..\..\..\B2DGame\data\sprites\capsuleSpeed.png ..\..\..\B2DGame\data\sprites\capsuleTrail.png ..\..\..\B2DGame\data\sprites\fire.png ..\..\..\B2DGame\data\sprites\meteor.png ..\..\..\B2DGame\data\sprites\meteorTrail.png ..\..\..\B2DGame\data\sprites\rocket.png ..\..\..\B2DGame\data\sprites\star1.png ..\..\..\B2DGame\data\sprites\star2.png ..\..\..\B2DGame\data\sprites\trail.png
+build B2DGame\CMakeFiles\DataTarget-B2DGame: phony B2DGame\data\font\RetroGaming.ttf B2DGame\data\font\retrogaming.zip B2DGame\data\music\space.mp3 B2DGame\data\music\space.wav B2DGame\data\savedScore.txt B2DGame\data\sound\crash.wav B2DGame\data\sound\thruster.wav B2DGame\data\sprites\Planet.png B2DGame\data\sprites\capsule.png B2DGame\data\sprites\capsule1.png B2DGame\data\sprites\capsuleSpeed.png B2DGame\data\sprites\capsuleSpeed1.png B2DGame\data\sprites\capsuleTrail.png B2DGame\data\sprites\fire.png B2DGame\data\sprites\meteor.png B2DGame\data\sprites\meteorTrail.png B2DGame\data\sprites\rocket.png B2DGame\data\sprites\star1.png B2DGame\data\sprites\star2.png B2DGame\data\sprites\trail.png ..\..\..\B2DGame\data\font\RetroGaming.ttf ..\..\..\B2DGame\data\font\retrogaming.zip ..\..\..\B2DGame\data\music\space.mp3 ..\..\..\B2DGame\data\music\space.wav ..\..\..\B2DGame\data\savedScore.txt ..\..\..\B2DGame\data\sound\crash.wav ..\..\..\B2DGame\data\sound\thruster.wav ..\..\..\B2DGame\data\sprites\Planet.png ..\..\..\B2DGame\data\sprites\capsule.png ..\..\..\B2DGame\data\sprites\capsule1.png ..\..\..\B2DGame\data\sprites\capsuleSpeed.png ..\..\..\B2DGame\data\sprites\capsuleSpeed1.png ..\..\..\B2DGame\data\sprites\capsuleTrail.png ..\..\..\B2DGame\data\sprites\fire.png ..\..\..\B2DGame\data\sprites\meteor.png ..\..\..\B2DGame\data\sprites\meteorTrail.png ..\..\..\B2DGame\data\sprites\rocket.png ..\..\..\B2DGame\data\sprites\star1.png ..\..\..\B2DGame\data\sprites\star2.png ..\..\..\B2DGame\data\sprites\trail.png
 
 
 #############################################
@@ -317,11 +317,29 @@ build B2DGame\data\sprites\capsule.png: CUSTOM_COMMAND ..\..\..\B2DGame\data\spr
 
 
 #############################################
+# Custom command for B2DGame\data\sprites\capsule1.png
+
+build B2DGame\data\sprites\capsule1.png: CUSTOM_COMMAND ..\..\..\B2DGame\data\sprites\capsule1.png
+  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/B2DGame/data/sprites/capsule1.png D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/out/build/x64-Debug/B2DGame/data/sprites/capsule1.png"
+  DESC = Generating data/sprites/capsule1.png
+  restat = 1
+
+
+#############################################
 # Custom command for B2DGame\data\sprites\capsuleSpeed.png
 
 build B2DGame\data\sprites\capsuleSpeed.png: CUSTOM_COMMAND ..\..\..\B2DGame\data\sprites\capsuleSpeed.png
   COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/B2DGame/data/sprites/capsuleSpeed.png D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/out/build/x64-Debug/B2DGame/data/sprites/capsuleSpeed.png"
   DESC = Generating data/sprites/capsuleSpeed.png
+  restat = 1
+
+
+#############################################
+# Custom command for B2DGame\data\sprites\capsuleSpeed1.png
+
+build B2DGame\data\sprites\capsuleSpeed1.png: CUSTOM_COMMAND ..\..\..\B2DGame\data\sprites\capsuleSpeed1.png
+  COMMAND = cmd.exe /C "cd /D D:\Game.Prog\SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D\out\build\x64-Debug\B2DGame && "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/B2DGame/data/sprites/capsuleSpeed1.png D:/Game.Prog/SAE921-GPR4100-CPlusPlus-Class-SStyles-Box2D/out/build/x64-Debug/B2DGame/data/sprites/capsuleSpeed1.png"
+  DESC = Generating data/sprites/capsuleSpeed1.png
   restat = 1
 
 

@@ -59,6 +59,7 @@ private:
 	//Boundaries
 	std::vector<Boundary> m_boundaries;
 	std::vector<Star> m_stars;
+	int m_starsCount = 0;
 	TrailManager m_trailManager;
 	ContactListener m_contacts;
 	
@@ -93,9 +94,19 @@ private:
 	sf::Font m_font;
 	sf::Text m_scoreText;
 	sf::Text m_lifeText;
+	sf::Text m_gameOverText;
 
 #pragma endregion
+#pragma region GameVariables
+
+	//Higher the levelDuration is, longer and easier the game will be.
+	float m_levelDuration = 0.25f;
+	//Defines the range [min - max] of the random trail scaling
+	float m_minTrailScaleValue = 1.0f;
+	float m_maxTrailScaleValue = 3.0f;
 
 	bool m_gameOver = false;
+
+#pragma endregion
 
 };

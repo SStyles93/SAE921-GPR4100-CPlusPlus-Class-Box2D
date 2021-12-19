@@ -33,13 +33,14 @@ void TrailManager::Update()
 		trail.Update();
 	}
 }
-void TrailManager::AddTrail(sf::Vector2f startPos)
+void TrailManager::AddTrail(sf::Vector2f startPos, float scale)
 {
 
 	m_trails.emplace_back(
 		Trail(
 			m_world,
-			startPos));
+			startPos,
+			scale));
 }
 void TrailManager::DestroyTrail(int trailId)
 {

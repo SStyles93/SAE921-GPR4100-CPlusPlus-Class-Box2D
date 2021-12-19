@@ -9,8 +9,8 @@
 
 Character::Character(Game& game) : m_game(game)
 {
-	m_mainSpriteAdress = "data/sprites/capsule.png";
-	m_secondSpriteAdress = "data/sprites/capsuleSpeed.png"; 
+	m_mainSpriteAdress = "data/sprites/capsule1.png";
+	m_secondSpriteAdress = "data/sprites/capsuleSpeed1.png"; 
 	m_thirdSpriteAdress = "data/sprites/capsuleTrail.png";
 }
 
